@@ -1,0 +1,149 @@
+0.
+Greedy
+Dynamic programming
+Be careful about special cases
+Remember to include self.variable for classes.
+"Do something, until ..." these kind of logics are suitable for DFS and stack.
+Using a utility funtion with additonal parameters, passing parameters as list + [val].
+
+1.
+Using array itself as a label space, this is usually useful when require no extra space.
+
+1a.
+Using another two arrays to store information as needed, example "Trapping Rain Water", "Product of Array Except Self"
+
+1b.
+For linked list problem, be careful about the head node, create dummy head note.
+
+1c.
+Using two stacks to implement queue. All elements in Stack1 into Stack2 and then back to Stack1.
+
+1d.
+Smart way to use stack: store couples as elements, stack = [], stack.append((val, min))
+
+2.
+A^A = 0; A^A^B = B
+
+3.
+add without +
+sum = a^b
+carry = (a&b) << 1
+recursive call this until carry == 0
+
+4.
+Using Stack for DFS
+Using Queue for BFS
+Iterative Preorder, Inorder and Postorder Traversal: using stack and set one flag for each node.
+Postorder Traversal = Preorder Traversal with right first and reverse result.
+Postorder Traversal: get the logic and use a LastVisited to implement the logic.
+
+5. 
+Using two pointers in array to do operations.
+Using two pointers for many linked list operations.
+
+6.
+Analyze problem, get the logic and then start code.
+
+7.
+Permutation and combination of characters using recursive method.
+
+8.
+Reverse linked list:
+using three pointers: previous, current, next
+update current to previous while next is not None.
+Two special cases: [], and one node.
+
+9.
+Largest signed int32: 0x7FFFFFFF 
+Two's complement is taking one's complement and then adding one.
+One's complement is taking all the reverse ones of the binary, so 1010's one's complement is 0101.
+one's complement: num = num^0xffffffff
+
+10.
+Binary Search:
+1. low=0, high = len(nums)-1
+2. low <= high
+
+        low = 0
+        high = len(nums) - 1
+        
+        while low <= high:
+            mid = (low+high)//2
+            if target == nums[mid]:
+                return mid
+            elif target > nums[mid]:
+                low = mid + 1
+            else:
+                high = mid - 1
+
+Find min in rotated sorted array:
+        start = 0
+        end = len(nums) - 1
+        while start < end:
+            m = start + (end - start) / 2
+            if nums[m] > nums[end]:
+                start = m + 1
+            else:
+                end = m
+        return nums[start]
+    Note: using one conditional criteria 
+              nums[mid] > nums[end], yes -> right; no -> left
+          Comparing with nums[start] does not work. 
+
+11. Rotate an array by k elements [1,2,3,4,5,6,7] by 3 into [5,6,7,1,2,3,4]
+a. reverse the first n - k elements
+b. reverse the rest of them
+c. reverse the entire array
+
+12. Two Sum Using Hash
+    def twoSum(self, num, target):
+        map = {}
+        for i in range(len(num)):
+            if num[i] not in map:
+                map[target - num[i]] = i
+            else:
+                return map[num[i]], i
+
+        return -1, -1
+
+13. Max sub array:
+
+    def maxSubArray(self, A):
+        if not A:
+            return 0
+
+        curSum = maxSum = A[0]
+        for num in A[1:]:
+            curSum = max(num, curSum + num)
+            maxSum = max(maxSum, curSum)
+
+        return maxSum
+
+14. KMP (Knuth Morris Pratt) Pattern Searching
+
+15. Symmetric Tree
+    Solve it recursively.
+        1. root.left isMirror root.right
+        2. left.left isMirror right.right and left.right isMirror right.left
+
+16. String permutation
+    Solve it recursively
+    Try all n characters in the first position and reduce it to a n-1 characters permutation, ...
+    Combination is using two pointers.
+    Permutation is using one pointer.
+
+17. Dynamic Programming (also known as dynamic optimization) is a method for solving a complex problem by breaking it down into a collection of simpler subproblems, solving each of those subproblems just once, and storing their solutions – ideally, using a memory-based data structure. 
+    Recurrent Relationship between states
+
+18. Start from two ends and merge into center: two sum, container with most water.
+    Container with most water:
+    Start from 0 and len(nums)-1, merge to middle with moving the smaller side. 
+
+19. Intersection of Two Linked Lists
+    At least three ways: 1. make a cycle in the list and find the cycle start
+     			 2. L1 + L2 and L2 + L1 should have the same ending
+			 3. let two pointers start from the places having the same distance from their end
+
+20. Is Linked List Palidrome? 
+	Reverse the second half of the linked list.
+    Note: do change to part of the data. 	
