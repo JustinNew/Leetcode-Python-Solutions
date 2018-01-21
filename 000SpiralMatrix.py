@@ -1,5 +1,6 @@
 # Leetcode 54 Spiral Matrix
 # Extremely Error prone, have to be really careful.
+# Master this can also solve "6 ZigZag Conversion"
 
 # Go by circle to print out, except only one row or one column left
 
