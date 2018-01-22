@@ -1,3 +1,5 @@
+# 41 First Missing Positive
+# Constant space and time o(n)
 # Given an unsorted integer array, find the first missing positive integer.
 
 # For example,
@@ -45,3 +47,53 @@ def firstMissingPositive(self, A):
             return index + 1
 
     return n + 1
+
+#######################################################################################################
+# My own solution.
+#######################################################################################################
+
+# "Constant space" means need to use list itself as label.
+# "o(n)" means need to go from 0 to n-1.
+# The algorithm:
+# Go from 0 to n-1 one by one.
+# For each i, swap the number nums[i] to the correct position (nums[i] to position index = nums[i])
+# Until i = nums[i] or nums[i] < 0 or nums[i] > n - 1.
+
+class Solution:
+    def firstMissingPositive(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        if len(nums) == 0:
+            return 1
+        if len(nums) == 1:
+            if nums[0] == 1:
+                return 2
+            else:
+                return 1
+
+        for i in range(len(nums)):
+
+            while i != nums[i] and nums[i] >= 0 and nums[i] < len(nums): 
+                move = nums[i]
+                if nums[i] != nums[move]:
+                    nums[i] = nums[move]
+                else:
+                    break
+                nums[move] = move
+
+        for index in range(1, len(nums)):
+            if nums[index] != index:
+                return index
+
+        if nums[0] == len(nums):
+            return len(nums) + 1
+
+        return len(nums)
+
+if __name__ == '__main__':
+
+    s = Solution()
+    print (s.firstMissingPositive([1, 1]))
