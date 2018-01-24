@@ -12,3 +12,10 @@ Python For Leetcode
 ### Dynamic Programming
 
   - Problems can be solved like F(n) = F(n-1) + F(n-2)
+  
+### Greedy
+
+  - Problems can be solved like maxReach = max(maxReach, i+x), where i+x is current reach.
+  
+Example problems:
+  * 55. Jump Game
