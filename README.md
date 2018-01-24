@@ -32,3 +32,9 @@ Example problems:
 ### Linked List
 
   - Remember to use Dummy Head Node to make life easier.
+
+### Array/List problems
+
+Trick
+  - Two pointers
+  - One or Two extra help arrays/lists 
