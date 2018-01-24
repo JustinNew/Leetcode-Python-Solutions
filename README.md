@@ -28,3 +28,7 @@ Example problems:
   
 Example problems:
 - 55 Jump Game
+
+### Linked List
+
+  - Remember to use Dummy Head Node to make life easier.
