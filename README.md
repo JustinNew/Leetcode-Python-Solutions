@@ -18,5 +18,4 @@ Python For Leetcode
   - Problems can be solved like maxReach = max(maxReach, i+x), where i+x is current reach.
   
 Example problems:
-55. Jump Game
-55. Jump Game
+- 55 Jump Game
