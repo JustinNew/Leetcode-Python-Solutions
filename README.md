@@ -18,6 +18,9 @@ There are three ways to do Dynamic Programming:
   - Top-down dynamic programming: build a memoization table to reduce computation, a way to optimize backtracking.
   - Bottom-up dynamic programming: top-down to bottom-up conversion is done by eliminating recursion.
   - A good example: https://leetcode.com/articles/jump-game/
+
+Example problems:
+- 62 Unique Paths
   
 ### Greedy
 
