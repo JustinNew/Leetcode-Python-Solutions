@@ -69,7 +69,7 @@ while low <= high:
         high = mid - 1
 ```
 
-#### Find min in rotated sorted array:
+#### Find min in rotated sorted array
 
 ```python
         start = 0
@@ -105,7 +105,7 @@ Note:
         return -1, -1
 ```
 
-#### Max sub array:
+#### Max sub array
 
 ```python
 def maxSubArray(self, A):
@@ -140,7 +140,7 @@ At least three ways:
   - L1 + L2 and L2 + L1 should have the same ending
   - Let two pointers start from the places having the same distance from their end
 
-#### Is Linked List Palidrome? 
+#### Is Linked List Palidrome 
         
 Reverse the second half of the linked list.
 Note: 
