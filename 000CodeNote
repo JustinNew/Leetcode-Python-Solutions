@@ -96,6 +96,7 @@ b. reverse the rest of them
 c. reverse the entire array
 
 12. Two Sum Using Hash
+
     def twoSum(self, num, target):
         map = {}
         for i in range(len(num)):
