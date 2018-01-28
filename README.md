@@ -43,6 +43,14 @@ Trick
 
 ## Algorithms
 
+#### Permuation without recursion
+The basic idea is, to permute n numbers, we can add the nth number into the resulting List<List<Integer>> from the n-1 numbers, in every possible position.
+
+Get permutation of [1,2,3]
+  - [[1]]
+  - [[2,1], [1,2]]
+  - [[3,2,1], [2,3,1], [2,1,3], [3,1,2], [1,3,2],[1,2,3]]
+
 #### add without +
 
   - sum = a^b
