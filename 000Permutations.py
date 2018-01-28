@@ -68,6 +68,26 @@ class Solution2:
 
         return
 
+########################################################
+# Excellent solution.
+# Without recursion
+# The basic idea is, to permute n numbers, we can add the nth number into 
+# the resulting List<List<Integer>> from the n-1 numbers, in every possible position.
+# 1. [[1]]
+# 2. [[2,1], [1,2]]
+# 3. [[3,2,1], [2,3,1], [2,1,3], [3,1,2], [1,3,2],[1,2,3]]
+#
+
+def permute(self, nums):
+    perms = [[]]   
+    for n in nums:
+        new_perms = []
+        for perm in perms:
+            for i in xrange(len(perm)+1):   
+                new_perms.append(perm[:i] + [n] + perm[i:])   ###insert n
+        perms = new_perms
+    return perms
+
 if __name__ == '__main__':
 
     s = Solution()
