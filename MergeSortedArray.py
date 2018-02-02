@@ -1,3 +1,5 @@
+# 88. Merge Sorted Array
+
 class Solution(object):
     def merge(self, nums1, m, nums2, n):
         """
@@ -31,6 +33,55 @@ class Solution(object):
 
         return
 
+class Solution2:
+    def merge(self, nums1, m, nums2, n):
+        """
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: void Do not return anything, modify nums1 in-place instead.
+        """
+
+        if n == 0:
+            return 
+
+        if m == 0:
+            for i in range(n):
+                nums1[i] = nums2[i]
+
+            return
+        
+        l = len(nums1)
+        for i in range(m):
+            nums1[l - 1 - i] = nums1[m - 1 - i]
+
+        i = 0 
+        j = 0
+        p1 = 0
+        while i < m and j < n:
+            if nums1[l - m + i] < nums2[j]:
+                nums1[p1] = nums1[l - m + i]
+                p1 += 1
+                i += 1
+            else:
+                nums1[p1] = nums2[j]
+                p1 += 1
+                j += 1
+
+        if i < m:
+            while i < m:
+                nums1[p1] = nums1[l - m + i]
+                p1 += 1
+                i += 1
+        else:
+            while j < n:
+                nums1[p1] = nums2[j]
+                p1 += 1
+                j += 1
+
+        return
+
 if __name__=='__main__':
 
     a = [0,2,4]
@@ -39,4 +90,4 @@ if __name__=='__main__':
 
     so.merge(a,len(a),b,len(b))
 
-    print (a)
+    print (a) 
