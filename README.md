@@ -21,6 +21,11 @@ There are three ways to do Dynamic Programming:
 
 Example problems:
 - 62 Unique Paths
+ 
+### DFS
+
+Example problems:
+  - 79 Word Search
   
 ### Greedy
 
@@ -33,6 +38,7 @@ Example problems:
 
   - Remember to use Dummy Head Node to make life easier.
   - Use two points for many problems.
+  - Partition List: separate one list into two lists and then combine together. Example: 86 Partition List
 
 ### Array/List problems
 
