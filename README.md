@@ -1,6 +1,20 @@
 Python For Leetcode
 ==========
 
+### Binary, Int
+
+Use **bin(num)**, **int(str, 2)**
+
+```python
+ a = '0b111'
+ # Convert to int
+ int(a,2)
+
+ a =7
+ # convert to binary
+ bin(a)
+```
+
 ### How to solve a coding problem well:
   - Understand the problem well
   - Solve the problem on paper
