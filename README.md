@@ -35,6 +35,7 @@ There are three ways to do Dynamic Programming:
 
 Example problems:
 - 62 Unique Paths
+- 91 Decode Ways
  
 ### DFS
 
