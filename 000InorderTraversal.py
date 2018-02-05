@@ -1,3 +1,5 @@
+# 94. Binary Tree Inorder Traversal
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -40,3 +42,59 @@ class Solution(object):
             node = stack.pop()
             res.append(node.val)
             root = node.right
+
+    # DFS Recursion.
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+
+        result = []
+
+        if root:
+            self.util(root, result)
+            return result
+        else:
+            return []
+
+    def util(self, root, result):
+
+        if root.left:
+            self.util(root.left, result)
+
+        result += [root.val]
+
+        if root.right:
+            self.util(root.right, result)
+
+        return
+
+    # Using Stack, and a visited FLAG.
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+
+        s = []
+        result = []
+        if root:
+            s.append((root,False))
+
+        while len(s) != 0:
+            (cur, flag) = s.pop()
+            if flag == False:
+                if cur.right:
+                    s.append((cur.right, False))
+                s.append((cur, True))
+                if cur.left: 
+                    s.append((cur.left, False))
+            else:
+                result += [cur.val]
+
+        return result
+
+        
+        
+        
