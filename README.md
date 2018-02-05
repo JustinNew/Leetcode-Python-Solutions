@@ -53,6 +53,7 @@ Example problems:
 
   - Remember to use Dummy Head Node to make life easier.
   - Use two points for many problems.
+  - Careful about issue related to first node. 
   - Partition List: separate one list into two lists and then combine together. Example: 86 Partition List
 
 ### Array/List problems
