@@ -10,7 +10,7 @@
 class Solution(object):
 
     # This can easily be modified to do preorde, inorder and postorder traversal.
-    def preorderTraversal(self, root):
+    def preorderTraversal1(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
@@ -30,7 +30,7 @@ class Solution(object):
 
         return result
 
-    def inorderTraversal(self, root):
+    def inorderTraversal2(self, root):
         res, stack = [], []
         while True:
             # Key is examine before put in.
@@ -44,7 +44,7 @@ class Solution(object):
             root = node.right
 
     # DFS Recursion.
-    def inorderTraversal(self, root):
+    def inorderTraversal3(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
@@ -71,7 +71,7 @@ class Solution(object):
         return
 
     # Using Stack, and a visited FLAG.
-    def inorderTraversal(self, root):
+    def inorderTraversal4(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
