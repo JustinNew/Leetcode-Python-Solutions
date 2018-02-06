@@ -1,6 +1,16 @@
 Python For Leetcode
 ==========
 
+### How to solve a coding problem well:
+
+  - Understand the problem well
+  - Solve the problem on paper
+  - Form clear logic
+  - Turn the solution into code
+  - Think about the test cases
+  - Do the test cases for the code to test code
+  - Use algorithms well known and understood to sovle new ones when possible
+  
 ### Binary, Int
 
 Use **bin(num)**, **int(str, 2)**
@@ -14,14 +24,6 @@ Use **bin(num)**, **int(str, 2)**
  # convert to binary
  bin(a)
 ```
-
-### How to solve a coding problem well:
-  - Understand the problem well
-  - Solve the problem on paper
-  - Form clear logic
-  - Turn the solution into code
-  - Think about the test cases
-  - Do the test cases for the code to test code
 
 ### Dynamic Programming
 
