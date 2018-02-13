@@ -67,6 +67,10 @@ Trick
 
 ## Algorithms
 
+#### Median of two sorted arrays
+
+#### Find Median from Data Stream
+
 #### Permuation without recursion
 The basic idea is, to permute n numbers, we can add the nth number into the resulting List<List<Integer>> from the n-1 numbers, in every possible position.
 
@@ -164,6 +168,9 @@ Solve it recursively:
   - Try all n characters in the first position and reduce it to a n-1 characters permutation, ...
   - Combination is using two pointers.
   - Permutation is using one pointer.
+  
+Example Problems:
+  - 634 Find the Derangement of An Array
   
 #### Intersection of Two Linked Lists
     
