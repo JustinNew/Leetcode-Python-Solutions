@@ -1,5 +1,5 @@
 # 7. Add Binary
-# Facebook Tage
+# Facebook Tag
 
 class Solution:
     def addBinary(self, a, b):
