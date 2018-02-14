@@ -1,36 +1,33 @@
-# Given a list of meeting times, checks if any of them overlaps. 
-# The follow-up question is to return the minimum number of rooms required to accommodate all the meetings.
-# [(1, 4), (5, 6), (8, 9), (2, 6)]
+# 253. Meeting Rooms II
 
-# Sort the start and end points.
-# Go through the sorted list
-# When encounter 'start' RoomNumber increase by on.
-# When encounter 'end'
+# Definition for an interval.
+# class Interval:
+#     def __init__(self, s=0, e=0):
+#         self.start = s
+#         self.end = e
 
-def GetRoomNumber(nums):
-
+class Solution:
+    def minMeetingRooms(self, intervals):
         """
-        :type nums: List[(int,int)]
+        :type intervals: List[Interval]
         :rtype: int
         """
 
         times = []
-        for i in range(len(nums)):
-            (start, end) = nums[i]
+        for i in range(len(intervals)):
+
+            (start, end) = (intervals[i].start, intervals[i].end)
             times.append((start, 1))
             times.append((end, -1))
 
-        times.sort(key=lambda x:x[0])
+        times.sort(key=lambda x: (x[0],x[1]))
 
-        result = 0
-        room = 0
+        maxRoom = 0
+        curRoom = 0
+
         for i in range(len(times)):
-            (time, flag) = times[i]
-            room += flag
-            result = max(result, room)
 
-        return result
+            curRoom += times[i][1]
+            maxRoom = max(maxRoom, curRoom)
 
-a = [(1, 4), (5, 6), (8, 9), (2, 6)]
-
-print (GetRoomNumber(a))
+        return maxRoom
