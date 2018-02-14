@@ -62,8 +62,9 @@ Example problems:
 ### Array/List problems
 
 Trick
-  - Two pointers
+  - One, Two pointers
   - One or Two extra help arrays/lists: Trapping Rain Water, Product of Array Except Self 
+  - From two ends and approaching middle
   
 
 ## Algorithms
