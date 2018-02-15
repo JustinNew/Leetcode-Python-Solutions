@@ -50,7 +50,7 @@ Example problems:
   - Problems can be solved like maxReach = max(maxReach, i+x), where i+x is current reach.
   
 Example problems:
-- 55 Jump Game
+  - 55 Jump Game
 
 ### Linked List
 
@@ -65,6 +65,7 @@ Trick
   - One, Two pointers
   - One or Two extra help arrays/lists: Trapping Rain Water, Product of Array Except Self 
   - From two ends and approaching middle
+  - Use dictionary to save some results, similar to saving the solved results in dynamic programming 
   
 
 ## Algorithms
