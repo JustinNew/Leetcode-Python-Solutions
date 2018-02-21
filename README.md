@@ -70,6 +70,8 @@ Trick
 
 ## Algorithms
 
+#### 236 Lowest Common Ancestor of a Binary Tree
+
 #### Median of two sorted arrays
 
 #### Find Median from Data Stream
