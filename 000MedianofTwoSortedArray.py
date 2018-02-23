@@ -1,4 +1,5 @@
 # 4. Median of Two Sorted Arrays
+# Explanation with figure:
 # https://www.programcreek.com/2012/12/leetcode-median-of-two-sorted-arrays-java/ 
 
 def findMedianSortedArrays(self, A, B):
