@@ -1,5 +1,7 @@
 # 398. Random Pick Index
 # Using Reservoir Sampling K = 1. 
+# Note: np.random.randint(a,b) does not include b.
+# random.randint(a,b) includes b.
 
 import random
 class Solution:
