@@ -49,6 +49,7 @@ class Solution(object):
 
 # 229. Majority Element II
 # Boyer-Moore Majority Vote algorithm 
+# https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html
 
 class Solution:
 
