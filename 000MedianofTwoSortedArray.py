@@ -23,7 +23,7 @@ class Solution(object):
         ma, mb = a[ia], b[ib]
     
         # when k is bigger than the sum of a and b's median indices 
-        # Pay special attention to ia + ib == k. 
+        # Pay special attention to ia + ib == k, can run a simple test with [1,2], [3]. 
         # Smaller first to avoid complication.
         if ia + ib < k:
             # if a's median is bigger than b's, b's first half doesn't include k
