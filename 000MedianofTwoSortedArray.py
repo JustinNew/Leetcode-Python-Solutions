@@ -24,6 +24,7 @@ class Solution(object):
     
         # when k is bigger than the sum of a and b's median indices 
         # Pay special attention to ia + ib == k. 
+        # Smaller first to avoid complication.
         if ia + ib < k:
             # if a's median is bigger than b's, b's first half doesn't include k
             if ma > mb:
