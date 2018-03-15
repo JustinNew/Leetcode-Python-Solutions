@@ -58,8 +58,9 @@ Example problems:
 ### Linked List
 
   - Remember to use Dummy Head Node to make life easier.
-  - Use two points for many problems.
-  - Careful about issue related to first node. 
+  - Use points for many problems: two, three or four.
+  - Careful about issue related to first node.
+  - Careful about the nodes connection change. 
   - Partition List: separate one list into two lists and then combine together. Example: 86 Partition List
 
 ### Array/List problems
