@@ -70,7 +70,7 @@ Trick
   - One or Two extra help arrays/lists: Trapping Rain Water, Product of Array Except Self 
   - From two ends and approaching middle
   - Use dictionary to save some results, similar to saving the solved results in dynamic programming 
-  
+  - Travel the list twice, once for processing to get some info, second time to find the answer.  
 
 ## Algorithms
 
