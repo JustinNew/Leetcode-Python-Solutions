@@ -55,6 +55,11 @@ Example problems:
 Example problems:
   - 55 Jump Game
 
+### Recursive
+
+Example problems:
+  - 40 Combination Sum II
+  
 ### Linked List
 
   - Remember to use Dummy Head Node to make life easier.
