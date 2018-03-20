@@ -39,6 +39,7 @@ There are three ways to do Dynamic Programming:
 Example problems:
 - 62 Unique Paths
 - 91 Decode Ways
+- 44 Wildcard Matching: recursion -> build table -> DP
  
 ### DFS
 
