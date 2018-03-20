@@ -81,7 +81,7 @@ class Solution(object):
                 match[0][i] = True
         elif p[0] == '?':
             match[0][1] = True
-        elif p[0] == s[1]:
+        elif p[0] == s[0]:
             match[0][1] = True
         
         for i in range(1, m):
@@ -122,7 +122,7 @@ class Solution(object):
 if __name__ == '__main__':
 
     s = Solution()
-    if s.isMatch2("abbaabbababbbbaaabbaabaabbbabbbbaaaaabababbbabbaabababbbabbbaababbabaaaabbabababaaabbbaaaabaaaabbaaaababaabbabaababbbabaaaaabbaabaaabbbababbbbabbbaabbabbbaaaabbabbaabaabbbbababbababaaababbaaaabaaabaaabb", "b**baabaa****ba*a**ab*abb*a*abbbba*baaba****a*aa**b*bba*ba*b*****ba***abb******ab***bab*aa***bb****b"):
+    if s.isMatch3("bbbbaaaaabaabbbbaabaaabaabbababbbaaabbababbbabaabaabaabababaaabaaaabbaabbaabbaaaaabbabbbbaaaababbaaaabbabbbaabaaabbaabaabaaababbabbaababaababbbbbaabbabbabbbbaabbaaababbabaaabbbbbbbbaababbbbbbabbaabaaa", "b*a**b***abaabaaaba*abaaaaabaabb*bbb*aa*ab*a**b**b*a**a**a*abbb***bb*b*****baababaa**ab*aa*bbaba**bb*b*"):
         print('Matched.')
     else:
         print('Did not match.')
