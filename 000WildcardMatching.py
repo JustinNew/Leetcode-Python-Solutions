@@ -10,6 +10,10 @@
 # Very careful when building the table.
 # Make clear logic first.
 
+# 3.
+# DP
+# It's actually the same as two by simplify the table to an array.
+
 class Solution(object):
     def isMatch(self, s, p):
         """
@@ -55,6 +59,9 @@ class Solution(object):
 
         m = len(p)
         n = len(s)
+
+        if len(p) - p.count('*') > n:
+            return False
 
         if m == 0 and n == 0:
             return True
@@ -115,7 +122,7 @@ class Solution(object):
 if __name__ == '__main__':
 
     s = Solution()
-    if s.isMatch3("abbaabbababbbbaaabbaabaabbbabbbbaaaaabababbbabbaabababbbabbbaababbabaaaabbabababaaabbbaaaabaaaabbaaaababaabbabaababbbabaaaaabbaabaaabbbababbbbabbbaabbabbbaaaabbabbaabaabbbbababbababaaababbaaaabaaabaaabb", "b**baabaa****ba*a**ab*abb*a*abbbba*baaba****a*aa**b*bba*ba*b*****ba***abb******ab***bab*aa***bb****b"):
+    if s.isMatch2("abbaabbababbbbaaabbaabaabbbabbbbaaaaabababbbabbaabababbbabbbaababbabaaaabbabababaaabbbaaaabaaaabbaaaababaabbabaababbbabaaaaabbaabaaabbbababbbbabbbaabbabbbaaaabbabbaabaabbbbababbababaaababbaaaabaaabaaabb", "b**baabaa****ba*a**ab*abb*a*abbbba*baaba****a*aa**b*bba*ba*b*****ba***abb******ab***bab*aa***bb****b"):
         print('Matched.')
     else:
         print('Did not match.')
