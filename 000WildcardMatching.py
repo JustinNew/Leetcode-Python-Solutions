@@ -14,6 +14,13 @@
 # DP
 # It's actually the same as two by simplify the table to an array.
 
+#     0  a  a  b
+# a   N  Y  N  N
+# *   N  Y  Y  Y
+# a   N  N  Y  N
+# *   N  N  Y  N
+# b   N  N  N  Y
+
 class Solution(object):
     def isMatch(self, s, p):
         """
