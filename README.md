@@ -64,6 +64,7 @@ Example problems:
   
 ### Linked List
 
+  - It's all about rearrange connections.
   - Remember to use Dummy Head Node to make life easier.
   - Use points for many problems: two, three or four.
   - Careful about issue related to first node.
