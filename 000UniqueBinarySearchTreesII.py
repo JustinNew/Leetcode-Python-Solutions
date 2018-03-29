@@ -1,6 +1,7 @@
 # 95. Unique Binary Search Trees II
 
 # How to generate enough root node.
+# Note result = [] for every call of dfs.
 
 class Solution(object):
     def generateTrees(self, n):
