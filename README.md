@@ -79,6 +79,11 @@ Trick
   - From two ends and approaching middle
   - Use dictionary to save some results, similar to saving the solved results in dynamic programming 
   - Travel the list twice, once for processing to get some info, second time to find the answer.  
+  
+### Binary Tree Traversal
+
+Problems uses in-order, pre-order or post-order traversal:
+  - 129 Sum Root to Leaf Numbers: post-order traversal with additional flag.
 
 ## Algorithms
 
