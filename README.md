@@ -62,6 +62,11 @@ Example problems:
 Example problems:
   - 40 Combination Sum II
   
+### Divide And Conquer
+
+Example problems:
+  - 131 Palindrome Partitioning
+  
 ### Linked List
 
   - It's all about rearrange connections.
