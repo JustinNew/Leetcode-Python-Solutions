@@ -1,5 +1,10 @@
 # 139. Word Break
 
+# 1. Recursive Approach: Time Limit Exceeded.
+
+# 2. Think about build a table to reduce repeated calculation
+#    The trick is how to create table and store data.
+
 class Solution(object):
 
     # Time Limit Exceeded.
