@@ -37,9 +37,9 @@ There are three ways to do Dynamic Programming:
   - A good example: https://leetcode.com/articles/jump-game/
 
 Example problems:
-- 62 Unique Paths
-- 91 Decode Ways
-- 44 Wildcard Matching: recursion -> build table -> DP
+  - 62 Unique Paths
+  - 91 Decode Ways
+  - 44 Wildcard Matching: recursion -> build table -> DP
  
 ### DFS
 
@@ -61,6 +61,7 @@ Example problems:
 
 Example problems:
   - 40 Combination Sum II
+  - 139 Word Break: recursion -> build table
   
 ### Divide And Conquer
 
