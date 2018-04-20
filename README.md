@@ -70,6 +70,7 @@ Example problems:
   
 ### Linked List
 
+  - Remember to work through one or two test cases, easy to miss/mess some pointer things.
   - It's all about rearrange connections.
   - Remember to use Dummy Head Node to make life easier.
   - Use points for many problems: two, three or four.
