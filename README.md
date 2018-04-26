@@ -229,6 +229,9 @@ while low <= high:
         high = mid - 1
 ```
 
+Example Problems:
+  - 162 Find Peak Element
+
 #### Find min in rotated sorted array
 
 ```python
