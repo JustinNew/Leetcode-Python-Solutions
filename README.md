@@ -92,10 +92,17 @@ Trick
 Problems uses in-order, pre-order or post-order traversal:
   - 129 Sum Root to Leaf Numbers: post-order traversal with additional flag.
   
-### Tricky Math/Algorithm
+### Special Cases
+
+#### Tricky Math/Algorithm
 
 Example problems:
   - 134 Gas Station
+  
+#### Need Be Carefull
+
+Example problems:
+  - 165 Compare Version Numbers
 
 ## Algorithms
 
