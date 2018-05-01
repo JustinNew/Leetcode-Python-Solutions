@@ -89,7 +89,7 @@ Trick
   
 ### Binary Tree Traversal
 
-Problems uses in-order, pre-order or post-order traversal:
+Problems uses in-order, pre-order, post-order traversal or level order travesal:
   - 129 Sum Root to Leaf Numbers: post-order traversal with additional flag.
   
 ### Special Cases
