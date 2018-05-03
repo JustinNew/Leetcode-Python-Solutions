@@ -91,6 +91,11 @@ Trick
 
 Problems uses in-order, pre-order, post-order traversal or level order travesal:
   - 129 Sum Root to Leaf Numbers: post-order traversal with additional flag.
+
+### Graph Problems
+
+Classis Problems:
+  - 207 Course Schedule  
   
 ### Special Cases
 
