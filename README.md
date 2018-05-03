@@ -11,6 +11,10 @@ Python For Leetcode
   - Do the test cases for the code to test code
   - Use algorithms well known and understood to sovle new ones when possible
   - Pay special attention to corner cases/operations: first node, last digit of binary add, ...
+
+### Classic List
+
+  - 207 Course Schedule
   
 ### Binary, Int
 
