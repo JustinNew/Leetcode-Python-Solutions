@@ -64,3 +64,30 @@ class Solution:
     def copyMatrix(self, matrix, m_l, m_h, n_l, n_h):
 
         return [[matrix[i][j] for j in range(n_l, n_h + 1)] for i in range(m_l, m_h + 1)]
+
+    def searchMatrix(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+        """
+        # Basic input checks
+        if not matrix or target is None:
+            return False
+
+        num_rows, num_cols = len(matrix), len(matrix[0])
+        # Start from very first row and very last column. 
+        # This way you can knock out row or column after each iteration.
+        # If you start from first row and first column, after check for that item, you can't 
+        # knock out a row or column.
+        # NOTE: Same can be accomplished by starting from last row and first column. 
+        # Checks needs to be modified though.
+        cr, cc = 0, num_cols - 1
+        while cr < num_rows and cc >= 0:
+            if matrix[cr][cc] == target:
+                return True
+            elif matrix[cr][cc] < target:
+                cr += 1
+            else:
+                cc -= 1
+        return False
