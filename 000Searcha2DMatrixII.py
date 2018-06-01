@@ -2,7 +2,7 @@
 
 # A little tricky.
 # 2-D binary search.
-# Divide matrix into four blocks and recursively do the search. 
+# Divide matrix into four blocks and recursively do the search for each block. 
 
 class Solution:
     def searchMatrix(self, matrix, target):
