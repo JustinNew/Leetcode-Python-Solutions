@@ -49,7 +49,7 @@ Update the three indexes and then add the smallest of the three candidate ugly n
 
 1. Use the existing ugly number to generate new ones by multiply 2, 3 or 5.
 2. There are three lines of candidates, one for 2, one for 3 and the last for 5.
-3. Always pick the smallest one and update the candidates. 
+3. Always pick the smallest one and update for the next candidate for all the three candidate lines. 
 '''
 
 def nthUglyNumber(n):
