@@ -16,6 +16,7 @@ Python For Leetcode
 
   - 207 Course Schedule
   - 240 Search a 2D Matrix II: 2-D binary search
+  - 264 Ugly Number II
   
 ### Binary, Int
 
