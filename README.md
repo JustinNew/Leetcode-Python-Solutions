@@ -52,6 +52,11 @@ Example problems:
 Trick:
   - DFS and pass down parameters
 
+### BFS
+  
+Example Problems:
+  - 279 Perfect Squares
+
 Example problems:
   - 79 Word Search
   
