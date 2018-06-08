@@ -117,6 +117,7 @@ Example problems:
   - 201 Bitwise AND of Numbers Range, liked this algorithm.
   - 213 House Robber II
   - 220 Contains Duplicate III
+  - 287 Find the Duplicate Number
   
 #### Need Be Carefull
 
