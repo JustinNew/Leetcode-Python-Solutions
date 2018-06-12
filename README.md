@@ -46,6 +46,7 @@ Example problems:
   - 62 Unique Paths
   - 91 Decode Ways
   - 44 Wildcard Matching: recursion -> build table -> DP
+  - 300 Longest Increasing Subsequence
  
 ### DFS
 
