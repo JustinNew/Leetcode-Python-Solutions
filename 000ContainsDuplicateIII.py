@@ -1,6 +1,11 @@
 # 220. Contains Duplicate III
 
 '''
+Given an array of integers, find out whether there are two distinct indices i and j in the array 
+such that the absolute difference between nums[i] and nums[j] is at most t and the absolute difference between i and j is at most k.
+'''
+
+'''
 Of course, we need to compare num[i] with previouse k nums. if the difference is not greater than t, we return True.
 
 A straight-foward solution is to compute the differences one by one, which needs at most k operations, so the total time is O(nk).
