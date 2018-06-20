@@ -100,9 +100,6 @@ while low <= high:
         high = mid - 1
 ```
 
-Example Problems:
-  - 162 Find Peak Element
-
 ## Find min in rotated sorted array
 
 ```python
@@ -120,6 +117,39 @@ Note:
   - Using one conditional criteria: nums[mid] > nums[end], yes -> right; no -> left
   - Comparing with nums[start] does not work.
   
+## Course Schedule
+
+To see whether there is circle in the graph.
+  - 1 if node v has not been visited, then mark it as 0.
+  - 2 if node v is being visited, then mark it as -1. If we find a vertex marked as -1 in DFS, then their is a ring.
+  - 3 if node v has been visited, then mark it as 1. If a vertex was marked as 1, then no ring contains v or its successors.
+
+```python
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        graph = [[] for _ in xrange(numCourses)]
+        visit = [0 for _ in xrange(numCourses)]
+        for x, y in prerequisites:
+            graph[x].append(y)
+
+        def dfs(i):
+            if visit[i] == -1:
+                return False
+            if visit[i] == 1:
+                return True
+            visit[i] = -1
+            for j in graph[i]:
+                if not dfs(j):
+                    return False
+            visit[i] = 1
+            return True
+
+        for i in xrange(numCourses):
+            if not dfs(i):
+                return False
+        return True
+```
+
 ## Rotate an array by k elements [1,2,3,4,5,6,7] by 3 into [5,6,7,1,2,3,4]
   - reverse the first n - k elements
   - reverse the rest of them
@@ -189,3 +219,58 @@ class Solution(object):
 ```
 Note:
   - After find a meeting place, the next time **slow** and **fast** both move one step at a time. 
+
+## 236 Lowest Common Ancestor of a Binary Tree
+
+## Reservoir Sampling
+
+```sh
+Init : a reservoir with the size： k  
+  
+for i= k+1 to N  
+  
+    M=random(1, i);  
+  
+    if( M < k)  
+  
+     SWAP the Mth value and ith value  
+  
+end for
+```
+
+## Find Median from Data Stream
+
+## Permuation without recursion
+The basic idea is, to permute n numbers, we can add the nth number into the resulting List<List<Integer>> from the n-1 numbers, in every possible position.
+
+Get permutation of [1,2,3]
+  - [[1]]
+  - [[2,1], [1,2]]
+  - [[3,2,1], [2,3,1], [2,1,3], [3,1,2], [1,3,2],[1,2,3]]
+
+## Symmetric Tree
+
+Solve it recursively.
+  - root.left isMirror root.right
+  - left.left isMirror right.right and left.right isMirror right.left
+  
+## String permutation
+    
+Solve it recursively:
+  - Try all n characters in the first position and reduce it to a n-1 characters permutation, ...
+  - Combination is using two pointers.
+  - Permutation is using one pointer.
+  
+## Intersection of Two Linked Lists
+    
+At least three ways: 
+  - Make a cycle in the list and find the cycle start
+  - L1 + L2 and L2 + L1 should have the same ending
+  - Let two pointers start from the places having the same distance from their end
+
+## Is Linked List Palidrome 
+        
+Reverse the second half of the linked list.
+
+Note: 
+  - Do change to part of the data.
