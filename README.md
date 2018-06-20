@@ -311,6 +311,43 @@ def maxSubArray(self, A):
     return maxSum
 ```
 
+#### Linked List Cycle II
+
+```python
+class Solution(object):
+    def detectCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return None
+
+        fast = head
+        slow = head
+
+        while slow.next and fast.next and fast.next.next:
+
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                break
+            
+        if not slow.next or not fast.next or not fast.next.next:
+            return None
+        
+        slow = head
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+
+        return slow
+```
+Note:
+  - After find a meeting place, the next time **slow** and **fast** both move one step at a time. 
+
+
 #### Symmetric Tree
 
 Solve it recursively.
