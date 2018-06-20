@@ -108,10 +108,8 @@ Problems uses in-order, pre-order, post-order traversal or level order travesal:
 
 Classis Problems:
   - 207 Course Schedule  
-  
-### Special Cases
 
-#### Tricky Math/Algorithm
+### Tricky Math/Algorithm
 
 Example problems:
   - 134 Gas Station
@@ -119,69 +117,4 @@ Example problems:
   - 213 House Robber II
   - 220 Contains Duplicate III
   - 287 Find the Duplicate Number
-  
-#### Need Be Carefull
-
-Example problems:
-  - 165 Compare Version Numbers
-
-## Algorithms
-
-#### 236 Lowest Common Ancestor of a Binary Tree
-
-#### Reservoir Sampling
-
-```sh
-Init : a reservoir with the size： k  
-  
-for i= k+1 to N  
-  
-    M=random(1, i);  
-  
-    if( M < k)  
-  
-     SWAP the Mth value and ith value  
-  
-end for
-```
-
-#### Find Median from Data Stream
-
-#### Permuation without recursion
-The basic idea is, to permute n numbers, we can add the nth number into the resulting List<List<Integer>> from the n-1 numbers, in every possible position.
-
-Get permutation of [1,2,3]
-  - [[1]]
-  - [[2,1], [1,2]]
-  - [[3,2,1], [2,3,1], [2,1,3], [3,1,2], [1,3,2],[1,2,3]]
-
-
-#### Symmetric Tree
-
-Solve it recursively.
-  - root.left isMirror root.right
-  - left.left isMirror right.right and left.right isMirror right.left
-  
-#### String permutation
-    
-Solve it recursively:
-  - Try all n characters in the first position and reduce it to a n-1 characters permutation, ...
-  - Combination is using two pointers.
-  - Permutation is using one pointer.
-  
-Example Problems:
-  - 634 Find the Derangement of An Array
-  
-#### Intersection of Two Linked Lists
-    
-At least three ways: 
-  - Make a cycle in the list and find the cycle start
-  - L1 + L2 and L2 + L1 should have the same ending
-  - Let two pointers start from the places having the same distance from their end
-
-#### Is Linked List Palidrome 
-        
-Reverse the second half of the linked list.
-
-Note: 
-  - Do change to part of the data.
+  - 165 Compare Version Numbers: be extremely careful about different cases
