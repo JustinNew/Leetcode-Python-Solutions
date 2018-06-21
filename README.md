@@ -57,10 +57,9 @@ Trick:
 ### BFS
   
 Example Problems:
-  - 279 Perfect Squares
-
-Example problems:
   - 79 Word Search
+  - 322 Coin Change
+  - 279 Perfect Squares
   
 ### Greedy
 
