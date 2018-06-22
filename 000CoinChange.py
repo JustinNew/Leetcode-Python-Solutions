@@ -36,7 +36,44 @@ class Solution:
 
             amounts = temp
 
+    # Optimization
+    # Improve the speed by adding visited list.
+    # Remove the 'i - j in temp', this is time consuming.
+    def coinChangeBFSTopDown(self, coins, amount):
+        """
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+        count = 0
+        if len(coins) == 0:
+            return -1
+        if amount == 0:
+            return 0
+
+        visited = [False for i in range(amount+1)]
+        visited[amount] = True
+        amounts = [amount]
+        while True:
+
+            temp = []
+            count += 1
+            for i in amounts:
+                for j in coins:
+                    if i > j and not visited[i - j]:
+                        temp.append(i - j)
+                        visited[i - j] = True
+                    if i == j:
+                        return count
+
+            if len(temp) == 0:
+                return -1
+
+            amounts = temp
+
     # Try bottom up BFS and build a table.
+    # Time limit exceeded.
+    # Actually the same as Top Down.
     def coinChange1(self, coins, amount):
         """
         :type coins: List[int]
@@ -68,6 +105,46 @@ class Solution:
                 return -1
 
             d.update(temp)
+
+    # Optimization
+    # BFS Bottom up.
+    # Improve TLE by removing 'i + j not in d'
+    def coinChangeBFSBottomUP(self, coins, amount):
+        """
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+
+        if len(coins) == 0:
+            return -1
+        if amount == 0:
+            return 0
+        if amount in coins:
+            return 1
+
+        # Create a dictionary to keep BFS buildup.
+        d = [0]
+        visited = [False for i in range(amount + 1)]
+        visited[0] = True
+        count = 0
+        
+        while True:
+
+            count += 1
+            temp = []
+            for i in d:
+                for j in coins:
+                    if i + j == amount:
+                        return count
+                    if i + j < amount and not visited[i + j]:
+                        temp.append(i + j)
+                        visited[i + j] = True
+
+            if len(temp) == 0:
+                return -1
+
+            d = temp
 
     # Bottom Up + Top Down
     def coinChange2(self, coins, amount):
@@ -121,7 +198,65 @@ class Solution:
                 return -1
             bottomup.update(temp2)
 
+
+    # Optimization of Top Down + Bottom Up.
+    def coinChangeTopBottom(self, coins, amount):
+        """
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+        if len(coins) == 0:
+            return -1
+        if amount == 0:
+            return 0
+        if amount in coins:
+            return 1
+
+        topdown = [False for i in range(amount + 1)]
+        bottomup = [False for i in range(amount + 1)]
+        topdown[amount] = True
+        bottomup[0] = True
+        top = [amount]
+        bottom = [0]
+
+        top_count, bottom_count = 0, 0
+        while True:
+
+            t1 = []
+            t2 = []
+
+            for i in top:
+                if bottomup[i]:
+                    return top_count + bottom_count
+                for coin in coins:
+                    if i - coin >= 0 and bottomup[i - coin]:
+                        return top_count + bottom_count + 1
+                    if i - coin >= 0 and not topdown[i - coin]:
+                        topdown[i - coin] = True                            
+                        t1.append(i - coin)
+            if len(t1) > 0:
+                top = t1
+                top_count += 1
+
+            for j in bottom:
+                if topdown[j]:
+                    return top_count + bottom_count
+                for coin in coins:
+                    if j + coin <= amount and topdown[j + coin]:
+                        return top_count + bottom_count + 1
+                    if j + coin <= amount and not bottomup[j + coin]:                         
+                        bottomup[j + coin] = True
+                        t2.append(j + coin)
+                            
+            if len(t2) > 0: 
+                bottom_count += 1
+                bottom = t2
+            
+            if len(t1) == 0 or len(t2) == 0:
+                return -1
+ 
 if __name__ == '__main__':
 
     so = Solution()
-    print(so.coinChange2([27,398,90,323,454,413,70,315], 6131))
+    print(so.coinChangeTopBottom([1], 2))
