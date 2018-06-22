@@ -64,7 +64,9 @@ Trick:
   
 Example Problems:
   - 79 Word Search
-  - 322 Coin Change
+  - **322 Coin Change**
+    - BFS top down
+    - BFS bottom up with table buildup
   - 279 Perfect Squares
   
 ### Greedy
