@@ -19,8 +19,9 @@ Python For Leetcode
   - 240 Search a 2D Matrix II: 2-D binary search
   - 264 Ugly Number II
   - 322 Coin Change
-    - BFS top down, a lot of repeated calculations
+    - BFS top down with table buildup
     - BFS bottom up with table buildup
+    - BFS top down + bottom up with table buildup
   
 ### Binary, Int
 
