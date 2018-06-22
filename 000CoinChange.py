@@ -255,8 +255,18 @@ class Solution:
             
             if len(t1) == 0 or len(t2) == 0:
                 return -1
- 
-if __name__ == '__main__':
 
-    so = Solution()
-    print(so.coinChangeTopBottom([1], 2))
+
+# Dynamic Programming
+'''
+Assume dp[i] is the fewest number of coins making up amount i, then for every coin in coins, dp[i] = min(dp[i - coin] + 1).
+'''
+    def coinChange(self, coins, amount):
+        MAX = float('inf')
+        dp = [0] + [MAX] * amount
+
+        for i in xrange(1, amount + 1):
+            dp[i] = min([dp[i - c] if i - c >= 0 else MAX for c in coins]) + 1
+
+        return [dp[amount], -1][dp[amount] == MAX]
+ 
