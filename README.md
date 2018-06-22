@@ -22,6 +22,7 @@ Python For Leetcode
     - BFS top down with table buildup
     - BFS bottom up with table buildup
     - BFS top down + bottom up with table buildup
+    - Dynamic programming
   
 ### Binary, Int
 
