@@ -34,6 +34,12 @@ Use **bin(num)**, **int(str, 2)**
 
 ### Dynamic Programming
 
+Dynamic programming amounts to breaking down an optimization problem into simpler sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. 
+
+DP is a useful technique for optimization problems, those problems that seek the maximum or minimum solution given certain constraints, because it looks through all possible sub-problems and never recomputes the solution to any sub-problem. 
+
+Sub-problems are smaller versions of the original problem. In fact, sub-problems often look like a reworded version of the original problem. If formulated correctly, sub-problems build on each other in order to obtain the solution to the original problem.
+
   - Problems can be solved like F(n) = F(n-1) + F(n-2)
   
 There are three ways to do Dynamic Programming: 
