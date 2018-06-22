@@ -15,8 +15,12 @@ Python For Leetcode
 ### Classic List
 
   - 207 Course Schedule
+    - Graph, DFS to detect circle
   - 240 Search a 2D Matrix II: 2-D binary search
   - 264 Ugly Number II
+  - 322 Coin Change
+    - BFS top down, a lot of repeated calculations
+    - BFS bottom up with table buildup
   
 ### Binary, Int
 
@@ -64,7 +68,7 @@ Trick:
   
 Example Problems:
   - 79 Word Search
-  - **322 Coin Change**
+  - 322 Coin Change
     - BFS top down
     - BFS bottom up with table buildup
   - 279 Perfect Squares
