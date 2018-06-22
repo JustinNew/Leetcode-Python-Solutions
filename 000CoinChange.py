@@ -258,15 +258,32 @@ class Solution:
 
 
 # Dynamic Programming
-'''
-Assume dp[i] is the fewest number of coins making up amount i, then for every coin in coins, dp[i] = min(dp[i - coin] + 1).
-'''
-    def coinChange(self, coins, amount):
+# Assume dp[i] is the fewest number of coins making up amount i, 
+# then for every coin in coins, dp[i] = min(dp[i - coin] + 1).
+    # My DP
+    def coinChangeTopBottom(self, coins, amount):
+        """
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+
+        if len(coins) == 0:
+            return -1
+        if amount == 0:
+            return 0
+        if amount in coins:
+            return 1
+
         MAX = float('inf')
-        dp = [0] + [MAX] * amount
 
-        for i in xrange(1, amount + 1):
-            dp[i] = min([dp[i - c] if i - c >= 0 else MAX for c in coins]) + 1
+        dp = [MAX for i in range(amount + 1)]
 
-        return [dp[amount], -1][dp[amount] == MAX]
- 
+        dp[0] = 0
+        for i in range(1, amount + 1):
+            dp[i] = min([dp[i - j] + 1 for j in coins if i - j >= 0])
+
+        if dp[-1] == MAX:
+            return -1
+        else:
+            return dp[-1] 
