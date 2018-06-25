@@ -38,9 +38,9 @@ Use **bin(num)**, **int(str, 2)**
  bin(a)
 ```
 
-### [Dynamic Programming](https://medium.freecodecamp.org/demystifying-dynamic-programming-3efafb8d4296)
+### Dynamic Programming
 
-Dynamic programming amounts to breaking down an optimization problem into simpler sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. 
+Dynamic programming amounts to breaking down an optimization problem into simpler sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. [Here is a good explanation about Dynamic Programming.](https://medium.freecodecamp.org/demystifying-dynamic-programming-3efafb8d4296)
 
 DP is a useful technique for optimization problems, those problems that seek the maximum or minimum solution given certain constraints, because it looks through all possible sub-problems and never recomputes the solution to any sub-problem. 
 
