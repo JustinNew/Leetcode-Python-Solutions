@@ -38,7 +38,7 @@ Use **bin(num)**, **int(str, 2)**
  bin(a)
 ```
 
-### Dynamic Programming
+### [Dynamic Programming](https://medium.freecodecamp.org/demystifying-dynamic-programming-3efafb8d4296)
 
 Dynamic programming amounts to breaking down an optimization problem into simpler sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. 
 
