@@ -24,6 +24,9 @@ Python For Leetcode
     - BFS top down + bottom up with table buildup
     - Dynamic programming
   - 337 House Robber III
+  - 394 Decode String
+    - Use Stack
+    - Use recursion
   
 ### Binary, Int
 
