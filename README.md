@@ -100,6 +100,11 @@ Example problems:
 Example problems:
   - 131 Palindrome Partitioning
   
+### Backtrack
+
+Example problems:
+  - 416 Partition Equal Subset Sum
+
 ### Linked List
 
   - Remember to work through one or two test cases, easy to miss/mess some pointer things.
