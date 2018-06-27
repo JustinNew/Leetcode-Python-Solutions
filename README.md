@@ -52,7 +52,8 @@ Use **bin(num)**, **int(str, 2)**
 
 Key Points:
   - Problems can be solved by solving sub-problem first 
-  - How to break down into sub-problems
+  - **How to break down into sub-problems**
+  - Sub-problems on Sub-problems on Sub-problems
 
 Dynamic programming amounts to breaking down an [optimization] problem into simpler sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. [Here is a good explanation about Dynamic Programming.](https://medium.freecodecamp.org/demystifying-dynamic-programming-3efafb8d4296)
 
