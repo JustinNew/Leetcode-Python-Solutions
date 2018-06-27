@@ -32,6 +32,7 @@ Python For Leetcode
   - 416 Partition Equal Subset Sum
     - Recursive
     - DFS with memory
+    - Dynamic Programming
   
 ### Binary, Int
 
