@@ -29,6 +29,8 @@ Python For Leetcode
   - 394 Decode String
     - Use Stack
     - Use recursion
+  - 416 Partition Equal Subset Sum
+    - Recursive
   
 ### Binary, Int
 
@@ -94,6 +96,7 @@ Example problems:
 Example problems:
   - 40 Combination Sum II
   - 139 Word Break: recursion -> build table
+  - 416 Partition Equal Subset Sum
   
 ### Divide And Conquer
 
@@ -103,7 +106,6 @@ Example problems:
 ### Backtrack
 
 Example problems:
-  - 416 Partition Equal Subset Sum
 
 ### Linked List
 
