@@ -151,3 +151,7 @@ Example problems:
   - 220 Contains Duplicate III
   - 287 Find the Duplicate Number
   - 165 Compare Version Numbers: be extremely careful about different cases
+  - 406 Queue Reconstruction by Height
+    - Sort first
+    - Sort height ascending and count descending
+    - Start from end
