@@ -35,6 +35,10 @@ Python For Leetcode
     - Dynamic Programming
   - 647 Palindromic Substrings
     - Dynamic programming
+  - 560 Subarray Sum Equals K
+    - Intuition, O(n^2), TLE
+    - Key is continuous. Get SumSoFar, then Two sum problem. 
+    - Be careful about cases ([1, -1, 1, -1], 0). It's counted as 4 cases not 3. 
   
 ### Binary, Int
 
