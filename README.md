@@ -33,6 +33,8 @@ Python For Leetcode
     - Recursive
     - DFS with memory
     - Dynamic Programming
+  - 647 Palindromic Substrings
+    - Dynamic programming
   
 ### Binary, Int
 
