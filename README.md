@@ -57,8 +57,8 @@ Use **bin(num)**, **int(str, 2)**
 ### Dynamic Programming
 
 Key Points:
-  - Problems can be solved by solving sub-problem first 
-  - **How to break down into sub-problems**
+  - Any problem that can get solved by using smaller solved sub-problems
+  - Identity sub-problems and Use solved sub-problems for larger problem
   - Sub-problems on Sub-problems on Sub-problems
 
 Dynamic programming amounts to breaking down an [optimization] problem into simpler sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once. [Here is a good explanation about Dynamic Programming.](https://medium.freecodecamp.org/demystifying-dynamic-programming-3efafb8d4296)
@@ -80,6 +80,7 @@ Example problems:
   - 300 Longest Increasing Subsequence
   - 309 Best Time to Buy and Sell Stock with Cooldown
   - 416 Partition Equal Subset Sum
+  - 338 Counting Bits
  
 ### DFS
 
