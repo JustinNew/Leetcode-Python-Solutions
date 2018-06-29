@@ -83,3 +83,30 @@ class Solution(object):
                 return m
             
             l = temp
+
+    # The above one can be improved.
+
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        d = {None: 0}
+
+        self.m = 0
+        def depth(root):
+            if root in d:
+                return
+            else:
+                depth(root.left)
+                depth(root.right)
+                if d[root.left] + d[root.right] > self.m:
+                    self.m = d[root.left] + d[root.right]
+                d[root] = max(d[root.left], d[root.right]) + 1
+
+            return
+
+        depth(root)
+        return self.m
