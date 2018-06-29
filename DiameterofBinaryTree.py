@@ -45,3 +45,41 @@ class Solution(object):
             return 1 + self.depth(root.left)
         else:
             return max(self.depth(root.left), self.depth(root.right)) + 1
+
+    # Improve by build up a table to depth.
+    # Level travesal to get max diameter.
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        d = {None: 0}
+        
+        def depth(root):
+            if root in d:
+                return
+            else:
+                depth(root.left)
+                depth(root.right)
+                d[root] = max(d[root.left], d[root.right]) + 1
+                
+            return 
+        
+        depth(root)
+        m = d[root.left] + d[root.right]
+        l = [root]
+        while True:
+            temp = []
+            for i in l:
+                if d[i.left] + d[i.right] > m:
+                    m = d[i.left] + d[i.right]
+                if i.left:
+                    temp.append(i.left)
+                if i.right:
+                    temp.append(i.right)
+            if len(temp) == 0:
+                return m
+            
+            l = temp
