@@ -243,10 +243,23 @@ end for
 ## Permuation without recursion
 The basic idea is, to permute n numbers, we can add the nth number into the resulting List<List<Integer>> from the n-1 numbers, in every possible position.
 
+## Permutation
+
 Get permutation of [1,2,3]
   - [[1]]
   - [[2,1], [1,2]]
   - [[3,2,1], [2,3,1], [2,1,3], [3,1,2], [1,3,2],[1,2,3]]
+
+Permuation is actually swapping.
+The following code gets a random shuffle of list.
+```python
+    def shuffle(nums):
+        ans = nums[:]                     # copy list
+        for i in range(len(ans)-1, 0, -1):     # start from end
+            j = random.randrange(0, i+1)    # generate random index 
+            ans[i], ans[j] = ans[j], ans[i]    # swap
+        return ans
+```
 
 ## Symmetric Tree
 
