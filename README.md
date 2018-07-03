@@ -43,6 +43,9 @@ Python For Leetcode
     - Recursion
     - DFS + stack + dictionary 
     - DFS + recursion + backtrack 
+  - 295 Find Median from Data Stream
+    - Need to memorize all the incoming data
+    - Use two heap to store small and large half
   
 ### Binary, Int
 
