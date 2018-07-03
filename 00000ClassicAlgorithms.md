@@ -220,8 +220,6 @@ class Solution(object):
 Note:
   - After find a meeting place, the next time **slow** and **fast** both move one step at a time. 
 
-## 236 Lowest Common Ancestor of a Binary Tree
-
 ## Reservoir Sampling
 
 ```sh
@@ -268,6 +266,10 @@ Solve it recursively.
   - left.left isMirror right.right and left.right isMirror right.left
   
 ## Lowest Common Ancestor of a Binary Tree 
+
+Algorithm:
+  - Need to traversal the binary tree
+  - recursively BFS travesal and feed back the result
 
 ```python
     def lowestCommonAncestor(self, root, p, q):
