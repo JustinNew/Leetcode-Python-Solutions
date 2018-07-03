@@ -267,6 +267,27 @@ Solve it recursively.
   - root.left isMirror root.right
   - left.left isMirror right.right and left.right isMirror right.left
   
+## Lowest Common Ancestor of a Binary Tree 
+
+```python
+    def lowestCommonAncestor(self, root, p, q):
+        if not root:
+            return None
+        
+        if root == p or root == q:
+            return root
+
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        
+        if left and right:
+            return root
+        elif left:
+            return left
+        else:
+            return right
+```
+
 ## String permutation
     
 Solve it recursively:
