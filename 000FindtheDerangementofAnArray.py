@@ -51,4 +51,4 @@ class Solution2:
 if __name__ == '__main__':
 
     s = Solution2()
-    print (s.findDerangement(10))
+    print (s.findDerangement(4))
