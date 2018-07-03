@@ -39,6 +39,10 @@ Python For Leetcode
     - Intuition, O(n^2), TLE
     - Key is continuous. Get SumSoFar, then Two sum problem. 
     - Be careful about cases ([1, -1, 1, -1], 0). It's counted as 4 cases not 3. 
+  - 236 Lowest Common Ancestor of a Binary Tree
+    - Recursion
+    - DFS build up parent node dictionary
+    - DFS recursion to build up ancestors 
   
 ### Binary, Int
 
@@ -95,6 +99,7 @@ Example Problems:
     - BFS top down
     - BFS bottom up with table buildup
   - 279 Perfect Squares
+  - 236 Lowest Common Ancestor of a Binary Tree
   
 ### Greedy
 
@@ -110,6 +115,7 @@ Example problems:
   - 40 Combination Sum II
   - 139 Word Break: recursion -> build table
   - 416 Partition Equal Subset Sum
+  - 236 Lowest Common Ancestor of a Binary Tree
   
 ### Divide And Conquer
 
