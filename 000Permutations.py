@@ -88,6 +88,23 @@ def permute(self, nums):
         perms = new_perms
     return perms
 
+#########################################################
+# Duplication happens when we insert the duplicated element before 
+# and after the same element, to eliminate duplicates, 
+# just insert only after the same element.
+
+def permuteUnique(self, nums):
+    ans = [[]]
+    for n in nums:
+        new_ans = []
+        for l in ans:
+            for i in xrange(len(l)+1):
+                new_ans.append(l[:i]+[n]+l[i:])
+                if i<len(l) and l[i]==n: break              #handles duplication
+        ans = new_ans
+    return ans
+
+
 if __name__ == '__main__':
 
     s = Solution()
