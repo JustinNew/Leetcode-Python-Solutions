@@ -45,8 +45,8 @@ class Solution:
                 continue
             if node is n:
                 break
-            stack.append(node.left)
             stack.append(node.right)
+            stack.append(node.left)
             parents[node.left] = node
             parents[node.right] = node
 
@@ -56,3 +56,54 @@ class Solution:
             answer.append(parents[answer[-1]])
 
         return answer
+
+
+# DFS to build up the Ancesters.
+class Solution:
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+
+        nodes_p = []
+        nodes_q = []
+
+        self.dfs(root, p, nodes_p)
+        self.dfs(root, q, nodes_q)
+
+        n = None
+        i = 0
+        while i < len(nodes_p) and i < len(nodes_q):
+            if nodes_p[i] == nodes_q[i]:
+                n = nodes_p[i]
+                i += 1
+            else:
+                break
+
+        return n
+
+    def dfs(self, root, node, list):
+
+        if not root:
+            return False
+
+        if root == node:
+            list.append(root)
+            return True
+
+        if root.left:
+            list.append(root)
+            if self.dfs(root.left, node, list):
+                return True
+            list.pop()
+
+        if root.right:
+            list.append(root)
+            if self.dfs(root.right, node, list):
+                return True
+            list.pop()
+
+        return False
