@@ -41,8 +41,8 @@ Python For Leetcode
     - Be careful about cases ([1, -1, 1, -1], 0). It's counted as 4 cases not 3. 
   - 236 Lowest Common Ancestor of a Binary Tree
     - Recursion
-    - DFS build up parent node dictionary
-    - DFS recursion to build up ancestors 
+    - DFS + stack + dictionary 
+    - DFS + recursion + backtrack 
   
 ### Binary, Int
 
