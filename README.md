@@ -47,6 +47,10 @@ Python For Leetcode
     - Need to memorize all the incoming data
     - Use two heap to store small and large half
   - 239 Sliding Window Maximum
+  - 329 Longest Increasing Path in a Matrix
+    - Recursion
+    - dictionary + DP
+    - DP + DFS
   
 ### Binary, Int
 
