@@ -89,7 +89,7 @@ Example problems:
   - 309 Best Time to Buy and Sell Stock with Cooldown
   - 416 Partition Equal Subset Sum
   - 338 Counting Bits
- 
+  - 329 Longest Increasing Path in a Matrix
 ### DFS
 
 Trick:
