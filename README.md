@@ -51,6 +51,9 @@ Python For Leetcode
     - Recursion
     - dictionary + DP
     - DP + DFS
+  - 315 Count of Smaller Numbers After Self
+    - Binary Index Tree
+    - Binary Search Tree
   
 ### Binary, Int
 
