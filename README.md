@@ -54,6 +54,9 @@ Python For Leetcode
   - 315 Count of Smaller Numbers After Self
     - Binary Index Tree
     - Binary Search Tree
+  - 300 Longest Increasing Subsequence
+    - DP
+    - Binary Search
   
 ### Binary, Int
 
