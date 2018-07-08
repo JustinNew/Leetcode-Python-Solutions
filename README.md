@@ -57,6 +57,7 @@ Python For Leetcode
   - 300 Longest Increasing Subsequence
     - DP
     - Binary Search
+    - Same: 334 Increasing Triplet Subsequence
   
 ### Binary, Int
 
