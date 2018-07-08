@@ -137,6 +137,7 @@ Example problems:
 
 Example problems:
   - 131 Palindrome Partitioning
+  - 395 Longest Substring with At Least K Repeating Characters
   
 ### Backtrack
 
