@@ -101,6 +101,7 @@ Example problems:
   - 416 Partition Equal Subset Sum
   - 338 Counting Bits
   - 329 Longest Increasing Path in a Matrix
+
 ### DFS
 
 Trick:
@@ -183,3 +184,5 @@ Example problems:
     - Sort first
     - Sort height ascending and count descending
     - Start from end
+  - 378 Kth Smallest Element in a Sorted Matrix
+    - Heap + Push and Pop One by One
