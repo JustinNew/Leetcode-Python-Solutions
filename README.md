@@ -175,6 +175,8 @@ Classis Problems:
 ### Tricky Math/Algorithm
 
 Example problems:
+  - 8 String to Integer (atoi)
+    - Be extremely careful about all kinds of test cases
   - 134 Gas Station
   - 201 Bitwise AND of Numbers Range, liked this algorithm.
   - 213 House Robber II
