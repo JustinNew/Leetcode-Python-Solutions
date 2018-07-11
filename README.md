@@ -59,7 +59,7 @@ Python For Leetcode
     - Binary Search
     - Same: 334 Increasing Triplet Subsequence
   - 84 Largest Rectangle in Histogram
-    - Stack
+    - Stack, using stack to only keep increasing sequence
   
 ### Binary, Int
 
