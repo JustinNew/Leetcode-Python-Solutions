@@ -113,6 +113,7 @@ Trick:
   - DFS and pass down parameters
 
 Example Problems:
+  - 207 Course Schedule
   - 210 Course Schedule II
 
 ### BFS
