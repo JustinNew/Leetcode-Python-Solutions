@@ -1,32 +1,35 @@
 # Code for the merge subroutine
 
-def merge(a,b):
-    """ Function to merge two arrays """
-    c = []
-    while len(a) != 0 and len(b) != 0:
-        if a[0] < b[0]:
-            c.append(a[0])
-            a.remove(a[0])
+def MergeSort(nums):
+
+    if len(nums) <= 1:
+        return nums
+
+    l = len(nums)
+    mid = int(l / 2)
+
+    left = MergeSort(nums[:mid])
+    right = MergeSort(nums[mid:])
+
+    i = 0
+    j = 0
+    result = []
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
         else:
-            c.append(b[0])
-            b.remove(b[0])
-    if len(a) == 0:
-        c += b
-    else:
-        c += a
-    return c
+            result.append(right[j])
+            j += 1
 
-# Code for merge sort
+    if i == len(left):
+        for k in range(j, len(right)):
+            result.append(right[k])
+    elif j == len(right):
+        for k in range(i, len(left)):
+            result.append(left[k])
 
-def mergesort(x):
-    """ Function to sort an array using merge sort algorithm """
-    if len(x) == 0 or len(x) == 1:
-        return x
-    else:
-        middle = len(x)/2
-        a = mergesort(x[:middle])
-        b = mergesort(x[middle:])
-        return merge(a,b)
+    return result
 
 ###################################################################
 # 148. Sort List
