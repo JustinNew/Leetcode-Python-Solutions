@@ -63,6 +63,9 @@ Python For Leetcode
   - 130 Surrounded Regions
     - DFS seems OK but exceeds maximum recursion times
     - BFS
+  - 128 Longest Consecutive Sequence
+    - Time O(n), so need to use dictionary.
+    - There is some trick to use dictionary well.
   
 ### Binary, Int
 
