@@ -44,7 +44,34 @@ class Solution(object):
 
         return max([v for v in d.values()])
 
+# Improve it.
+    def longestConsecutive(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
 
+        if len(nums) <= 1:
+            return len(nums)
+
+        d = {}
+        res = 0
+        for i in nums:
+            if i not in d:
+                left = d.get(i - 1, 0)
+                right = d.get(i + 1, 0)
+                m = 1 + left + right
+                d[i] = m
+                res = max(res, m)
+
+                d[i - left] = m
+                d[i + right] = m
+            else:
+                continue
+
+        return res
+
+# Sort first.
     def longestConsecutive(self, nums):
         """
         :type nums: List[int]
