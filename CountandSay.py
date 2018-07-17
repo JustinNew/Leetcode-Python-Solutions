@@ -37,3 +37,8 @@ class Solution(object):
             result = [k for k in temp]
 
         return ''.join([str(i) for i in result])
+
+if __name__ == '__main__':
+
+    so = Solution()
+    print(so.countAndSay(30))
