@@ -14,16 +14,23 @@
 #         self.left = None
 #         self.right = None
 
-class Solution:
+class Solution(object):
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        def util(root, upperLimit, lowerLimit):
 
-    def isValidBST(self, root, floor=float('-inf'), ceiling=float('inf')):
-        if not root: 
-            return True
-        if root.val <= floor or root.val >= ceiling:
-            return False
-        # in the left branch, root is the new ceiling; contrarily root is the new floor in right branch
-        return self.isValidBST(root.left, floor, root.val) and self.isValidBST(root.right, root.val, ceiling)
+            if not root:
+                return True
 
+            if root.val >= upperLimit or root.val <= lowerLimit:
+                return False
+
+            return util(root.left, root.val, lowerLimit) and util(root.right, upperLimit, root.val)
+
+        return util(root, float('inf'), float('-inf'))
 
 # Based on InorderTraversal.
 
