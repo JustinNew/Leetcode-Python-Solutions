@@ -1,6 +1,7 @@
 # 454. 4Sum II
 
 class Solution:
+    # Initial Try
     def fourSumCount(self, A, B, C, D):
         """
         :type A: List[int]
