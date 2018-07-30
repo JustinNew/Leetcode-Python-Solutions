@@ -66,6 +66,11 @@ Python For Leetcode
   - 128 Longest Consecutive Sequence
     - Time O(n), so need to use dictionary.
     - There is some trick to use dictionary well.
+  - 140 Word Break II
+    - Recursive, Time Limit Exceeded
+    - Forward Dynamic Programming, Memory Limit Exceeded
+    - Backward DP, works.
+
   
 ### Binary, Int
 
