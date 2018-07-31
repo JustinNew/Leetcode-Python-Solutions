@@ -14,6 +14,12 @@ Python For Leetcode
 
 ### Classic List
 
+  - 404 Sum of Left Leaves
+    - Recursion
+    - Depth First Using Stack
+    - Breadth First Using Queue
+    - Breadth/Level Using one temporary stack
+
   - 207 Course Schedule
     - Graph, DFS to detect circle
   - 240 Search a 2D Matrix II: 2-D binary search
