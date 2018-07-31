@@ -1,3 +1,5 @@
+# 404. Sum of Left Leaves
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -32,12 +34,12 @@ class Solution(object):
 
         while s:
             tmp = s.pop()
+            if temp.right:
+                s.append(temp.right)
             if tmp.left:
                 s.append(temp.left)
                 if not temp.left.left and not temp.left.right:
                     res = res + temp.left.val
-            if temp.right:
-                s.append(temp.right)
 
         return res
 
@@ -62,3 +64,32 @@ class Solution(object):
                 s.append(tmp.right)
 
         return res
+
+    # Level First Search
+    def sumOfLeftLeaves(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+
+        if not root:
+            return 0
+
+        result = 0
+        s = [root]
+
+        while 1:
+
+            temp = []
+            for n in s:
+                if n.left:
+                    temp.append(n.left)
+                    if not n.left.left and not n.left.right:
+                        result += n.left.val
+                if n.right:
+                    temp.append(n.right)
+
+            if len(temp) == 0:
+                return result
+            else:
+                s = temp
