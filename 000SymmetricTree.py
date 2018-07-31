@@ -1,3 +1,5 @@
+# 101. Symmetric Tree
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -11,24 +13,18 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        from collections import deque
 
-        if root == None:
+        if not root:
             return True
-        else:
-            return self.isMirror(root.left, root.right)
 
-    def isMirror(self, left, right):
+        def isMirror(left, right):
+            if not left and not right:
+                return True
+            elif not left or not right:
+                return False
+            elif left.val != right.val:
+                return False
+            else:
+                return isMirror(left.left, right.right) and isMirror(left.right, right.left)
 
-        if left==None and right== None:
-            return True
-        elif left==None or right==None:
-            return False
-
-        if left.val==right.val:
-            outPair = self.isMirror(left.left, right.right)
-            innerPair = self.isMirror(left.right, right.left)
-            return outPair and innerPair
-        else:
-            return False
-
+        return isMirror(root.left, root.right)
