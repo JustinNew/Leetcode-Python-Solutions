@@ -1,66 +1,58 @@
-# Example:
-#     include A and do the following
-#     and, not include A and do the following
-
-# Recursively.
+# 78. Subsets
 
 class Solution(object):
+
+    # Iteratively insert new elements in the existing list to create new list
+
     def subsets(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        result = []
-        temp = []
-        
-        self.util(0, len(nums)-1, nums, result, temp)
-        
+
+        if len(nums) == 0:
+            return [[]]
+
+        result = [[]]
+        for i in nums:
+            temp = []
+            for l in result:
+                temp.append(l + [i])
+            result += temp
+
         return result
-        
-    def util(self, start, end, nums, result, temp):
-        
-        if start > end:
-            result.append(temp)
-            return
 
-        self.util(start+1, end, nums, result, temp)
-        self.util(start+1, end, nums, result, temp+[nums[start]])
-        
-        return
+    # Recursively choose to include first or not, second or not, ...
 
-if __name__=='__main__':
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
 
-    a = [1,2,3]
-    so = Solution()
+        if len(nums) == 0:
+            return [[]]
 
-    print (so.subsets(a))
+        result = []
+        n = len(nums)
 
+        def util(i, temp):
+            if i == n:
+                result.append(temp)
+                return
 
-#
-# Thinking from the existing lists.
-#
+            util(i + 1, temp + [nums[i]])
+            util(i + 1, temp)
 
-# Iteratively.
+            return 
 
-class Solution:
-    # @param S, a list of integer
-    # @return a list of lists of integer
-    def subsets(self, S):
-    	if S == []:
-    		return []
-        S.sort() #sort the array to avoid descending list of int
-        res=[[]]
-        for element in S:
-        	temp = []
-        	for ans in res:
-        		 #append the new int to each existing list
-        		temp.append(ans+[element])
-        	res += temp
-        return res
+        util(0, [])
 
+        return result
 
-# With duplicates in the array items.
-# For duplicated items, just add to the items in the last round instead of all in the result.
+# 90. Subsets II
+
+# With duplicates
 
 class Solution(object):
     def subsetsWithDup(self, nums):
@@ -68,26 +60,63 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+
         if len(nums) == 0:
-            return []
-            
+            return [[]]
+
         result = [[]]
-        nums = sorted(nums)
-        l_l = []
-        
-        last = float('nan')
+        nums.sort()
+
+        prev = None
         for i in nums:
-            temp = []
-            
-            if i != last:
-                last = i
-                for j in result:
-                    temp.append(j+[i])
+            if i != prev:
+                temp = []
+                for l in result:
+                    temp.append(l + [i])
+                result += temp
+                prev = i
             else:
-                for j in l_l:
-                    temp.append(j+[i])
-                    
-            l_l = [k for k in temp]
-            result += temp
-            
+                t = []
+                for l in temp:
+                    t.append(l + [i])
+                result += t
+                temp = t
+
+        return result
+
+    # Recursively choose first or not, second or not, ...
+    # Add additional prev and flag to deal with duplicates.
+
+    def subsetsWithDup(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+
+        if len(nums) == 0:
+            return [[]]
+
+        result = []
+        nums.sort()
+        n = len(nums)
+
+        def util(i, prev, temp, flag):
+            if i == n:
+                result.append(temp)
+                return
+
+            if nums[i] != prev:
+                util(i + 1, nums[i], temp + [nums[i]], 1)
+                util(i + 1, nums[i], temp, 0)
+            else:
+                if flag == 1:
+                    util(i + 1, nums[i], temp + [nums[i]], 1)
+                    util(i + 1, nums[i], temp, 0)
+                else:
+                    util(i + 1, nums[i], temp, 0)
+
+            return
+
+        util(0, None, [], 0)
+
         return result
