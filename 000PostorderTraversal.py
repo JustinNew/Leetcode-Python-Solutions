@@ -1,3 +1,5 @@
+# 145. Binary Tree Postorder Traversal
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -5,33 +7,57 @@
 #         self.left = None
 #         self.right = None
 
-# Using flag for visited or not.
 class Solution(object):
+
+    # Postorder can be accomplised by (modified) preorder:
+    # 1. modified preorder (right subtree first) first;
+    # 2. reverse result.
     def postorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        
-        if root == None:
+    
+        if not root:
             return []
 
+        s = [root]
         result = []
-        stack = []
-        stack.append((root, False))
+        while s:
+            n = s.pop()
+            result.append(n.val)
 
-        while stack:
-            cur, flag = stack.pop()
-            if cur:
-                if flag == True:
-                    result.append(cur.val)
-                else:
-                    stack.append(cur, True)
-                    stack.append(cur.right, False)
-                    stack.append(cur.left, False)
+            if n.left:
+                s.append(n.left)
+            if n.right:
+                s.append(n.right)
+
+        return result[::-1]
+
+    # Use additional flag to indicate whether visited or not for travesal
+    def postorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+    
+        if not root:
+            return []
+
+        s = [(root, False)]
+        result = []
+        while s:
+            n, flag = s.pop()
+            if flag:
+                result.append(n.val)
+            else:
+                s.append((n, True))
+                if n.right:
+                    s.append((n.right, False))
+                if n.left:
+                    s.append((n.left, False))
 
         return result
-
 
 # We know that a node is visited immediately after it's right child node be visited,
 # or it's left child node when it has no right child.
@@ -46,7 +72,7 @@ class Solution(object):
 
 def postorderTraversal(self, root):
     if root is None: return []
-    
+   
     s, lastVist, ret = [root], root, []
     while s:
         top = s[-1]
@@ -57,22 +83,5 @@ def postorderTraversal(self, root):
         else:
             if top.right: s.append(top.right)
             if top.left:  s.append(top.left)
-    
+
     return ret
-
-# Postorder can be accomplised by (modified) preorder: 1. modified preorder (right subtree first) first; 2. reverse result. 
-class Solution:
-    # @param {TreeNode} root
-    # @return {integer[]}
-    def postorderTraversal(self, root):
-        traversal, stack = [], [root]
-        while stack:
-            node = stack.pop()
-            if node:
-                # pre-order, right first
-                traversal.append(node.val)
-                stack.append(node.left)
-                stack.append(node.right)
-
-        # reverse result
-        return traversal[::-1]
