@@ -1,3 +1,37 @@
+# 77. Combinations
+
+class Solution(object):
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+
+        if k > n:
+            return []
+        if k == n:
+            return [[i + 1 for i in range(n)]]
+
+        result = []
+        def util(ndx, have, temp):
+            if have == k:
+                result.append(temp)
+                return 
+            elif ndx > n:
+                return 
+            elif n - ndx + 1 < k - have:
+                return 
+            else:
+                for i in range(ndx, n + 1):
+                    util(i + 1, have + 1, temp + [i])
+
+                return 
+
+        util(1, 0, [])
+        return result
+
+######################################################################
 # Using Recursive Method.
 # n, number of characters
 # r, number of characters to pick
@@ -32,35 +66,3 @@ class Solution(object):
             else:
                 times.append(str(hour)+':'+str(min))
         return times
-
-    def StringCombination(self, arr, num):
-        # arr is the string/array
-        # num is the number of characters to pick 
-
-        res_t = [0 for i in range(num)]
-        res = []
-
-        if num==0:
-            return
-        elif num>len(arr):
-            return
-        else:
-            self.utilCombination(arr, 0, len(arr), 0, num, res_t, res)    
-            return res
-
-    def utilCombination(self, arr, idx, n, k, r, res_t, res):
-
-        if k==r:
-           res.append(list(res_t))
-           return
-
-        for i in range(idx, n):
-            res_t[k] = arr[i]
-            self.utilCombination(arr, i+1, n, k+1, r, res_t, res)
-
-        return
-
-if __name__=='__main__':
-
-    so = Solution()
-    print (so.readBinaryWatch(2)) 
