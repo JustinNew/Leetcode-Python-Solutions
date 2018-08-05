@@ -1,6 +1,9 @@
-# Calculate the moving average (with a fixed window size) of a data stream.
-from collections import deque
+# 346. Moving Average from Data Stream
 
+# Calculate the moving average (with a fixed window size) of a data stream.
+
+
+from collections import deque
 class MovingAverage():
 
     def __init__(self,m):
@@ -9,7 +12,7 @@ class MovingAverage():
         self.sum = 0.0
 
     def next(self,int):
-        if len(self.q)<m:
+        if len(self.q) < self.m:
             self.q.append(int)
             self.sum += int
             return self.sum/len(self.q)
