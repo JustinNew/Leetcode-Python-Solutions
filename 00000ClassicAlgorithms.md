@@ -12,6 +12,7 @@ def findMedianSortedArrays(self, A, B):
     else:
         return (self.kth(A, B, l // 2) + self.kth(A, B, l // 2 - 1)) / 2.
 
+# Kth is '0' based.
 def kth(self, a, b, k):
     
     if not a:
