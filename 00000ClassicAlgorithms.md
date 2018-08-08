@@ -115,9 +115,11 @@ while low <= high:
         return nums[start]
 ```
 Note: 
-  - Using one conditional criteria: nums[mid] > nums[end], yes -> right; no -> left
+  - Use one conditional criteria: nums[mid] > nums[end], yes -> right; no -> left
   - Comparing with nums[start] does not work.
-  
+  - Use **'<'** instead of **'<='** compared to binary search  
+  - **start = m + 1** and **end = m** compared to **low = m + 1** and **high = m - 1**
+
 ## Course Schedule
 
 To see whether there is circle in the graph.
