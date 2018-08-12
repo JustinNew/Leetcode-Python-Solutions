@@ -1,4 +1,6 @@
 # Add without +.
+# Binary operations
+# Need to remember about the binary operations.
 
 class Solution():
 
