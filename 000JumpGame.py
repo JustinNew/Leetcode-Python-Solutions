@@ -1,13 +1,78 @@
 # 55. Jump Game
 
-# This can be used by DP.
-# Pay attention to "return self.util(nums, i+j+1, nums[i+j+1])"
-# Need to return on the self recursion call.
+class Solution(object):
+    ###########################################################################
+    # Intuition
+    # Start from first and go one by one to calculate the reachable state 
+    # Time Limit Exceeded
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
 
+        dp = [0 for i in range(len(nums))]
+        dp[0] = 1
+        for i in range(len(nums) - 1):
+            if dp[i] == 0:
+                return False
+            else:
+                for j in range(nums[i]):
+                    if i + j + 1 < len(nums):
+                        dp[i + j + 1] = 1
 
-# But actually it can be easily solved without DP.
+        return True if dp[-1] == 1 else False
+
+    ####################################################################
+    # Improve on the first approach
+    # For every step, calculate the max reachable state
+    # Time Limit Exceeded
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        dp = [0 for i in range(len(nums))]
+        dp[0] = 1
+        maxReach = 0
+        for i in range(len(nums) - 1):
+            if dp[i] == 1:
+                maxReach = i + nums[i]
+                if maxReach >= len(nums):
+                    return True
+                for j in range(i + 1, maxReach + 1):
+                    dp[j] = 1
+            else:
+                return False
+
+        return True if dp[-1] == 1 else False
+
+    ####################################################################
+    # O(n)
+    # Greedy, every time calculate the max reachable
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        if len(nums) == 1:
+            return True
+
+        maxReach = 0
+        i = 0
+        while 1:
+            t_m = maxReach
+            for j in range(i, maxReach + 1):
+                t_m = max(t_m, j + nums[j])
+            if t_m == maxReach:
+                return False
+            if t_m >= len(nums) - 1:
+                return True
+            maxReach = t_m
+            i = j + 1
+
+#############################################################################################
 # Trick: using max_reach = max(max_reach, i+x)
-
 
 def canJump(self, nums):
     max_reach, n = 0, len(nums)
@@ -27,34 +92,3 @@ def canJump(self, nums):
             return False
         m = max(m, i+n)
     return True
-
-#############################################################################################
-# My DP does not work (RecursionError: maximum recursion depth exceeded in comparison)
-############################################################################################# 
-class Solution:
-
-    def canJump(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-
-        if len(nums) <= 0:
-            return True
-
-        return self.util(nums, 0, nums[0])
-
-    def util(self, nums, i, length):
-
-        if (i + length) >= (len(nums) - 1):
-            return True
-        elif length == 0:
-            return False
-        else:
-            for j in range(length):
-                return self.util(nums, i+j+1, nums[i+j+1])
-
-if __name__ == '__main__':
-
-    s = Solution()
-    print (s.canJump([2,0,6,9,8,4,5,0,8,9,1,2,9,6,8,8,0,6,3,1,2,2,1,2,6,5,3,1,2,2,6,4,2,4,3,0,0,0,3,8,2,4,0,1,2,0,1,4,6,5,8,0,7,9,3,4,6,6,5,8,9,3,4,3,7,0,4,9,0,9,8,4,3,0,7,7,1,9,1,9,4,9,0,1,9,5,7,7,1,5,8,2,8,2,6,8,2,2,7,5,1,7,9,6]))
