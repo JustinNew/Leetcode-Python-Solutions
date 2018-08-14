@@ -1,9 +1,8 @@
 # 86. Partition List
-# Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
-# You should preserve the original relative order of the nodes in each of the two partitions.
 
-# Separate the one list into two lists and then combine together.
-# Use dummy head node.
+# Use dummy head node
+# Create two lists, one for smaller and one for larger or equal
+# Combine the two lists together
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -14,16 +13,56 @@
 class Solution:
 
     def partition(self, head, x):
-        h1 = l1 = ListNode(0)
-        h2 = l2 = ListNode(0)
+
+        if not head:
+            return None
+
+        small = ListNode(0)
+        large = ListNode(-1)
+        small_head = small
+        large_head = large
+
         while head:
             if head.val < x:
-                l1.next = head
-                l1 = l1.next
+                small.next = head
+                small = small.next
             else:
-                l2.next = head
-                l2 = l2.next
+                large.next = head
+                large = large.next
             head = head.next
-        l2.next = None
-        l1.next = h2.next
-        return h1.next
+
+        large.next = None    # Need to handle this dangling next pointer.
+        small.next = large_head.next
+        return small_head.next
+
+    # Another solution.
+    # Also need to deal with the dangling next pointer. 
+    def partition(self, head, x):
+        """
+        :type head: ListNode
+        :type x: int
+        :rtype: ListNode
+        """
+
+        if not head:
+            return None
+
+        small = ListNode(0)
+        large = ListNode(-1)
+        small_head = small
+        large_head = large
+
+        while head:
+            if head.val < x:
+                small.next = head
+                head = head.next
+                small = small.next
+                small.next = None
+            else:
+                large.next = head
+                head = head.next
+                large = large.next
+                large.next = None
+
+        small.next = large_head.next
+        return small_head.next
