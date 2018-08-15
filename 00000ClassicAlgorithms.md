@@ -373,3 +373,7 @@ Boundary is handled using dummy buildings.
             stack.append(i)
         height.pop()
         return ans
+
+## Reservior Sampling
+
+[This blog](https://gregable.com/2007/10/reservoir-sampling.html) explains the reservior sampling very well.
