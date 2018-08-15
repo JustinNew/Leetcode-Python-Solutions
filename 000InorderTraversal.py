@@ -30,17 +30,25 @@ class Solution(object):
 
         return result
 
+    # Use stack DFS
+    # Pay attention to root and node and their relationship
     def inorderTraversal2(self, root):
+
         res, stack = [], []
         while True:
-            # Key is examine before put in.
+
+            # DFS: put in the node and move to the its left node 
             while root:
                 stack.append(root)
                 root = root.left
             if not stack:
                 return res
+
+            # Deal with the node popped -- inorder
             node = stack.pop()
             res.append(node.val)
+
+            # Start with new root -- right node after output "root" inorder
             root = node.right
 
     # DFS Recursion.
@@ -94,7 +102,3 @@ class Solution(object):
                 result += [cur.val]
 
         return result
-
-        
-        
-        
