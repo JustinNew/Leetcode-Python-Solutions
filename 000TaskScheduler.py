@@ -1,4 +1,5 @@
 # 621. Task Scheduler
+
 # Facebook Tag
 # Count the number of idle slots. 
 # Max idle slot is determined by (most_common_task_number - 1) * n
@@ -43,7 +44,28 @@ class Solution:
         Mct = task_counts.count(M)
         return max(len(tasks), (M - 1) * (N + 1) + Mct)   
 
-if __name__ == '__main__':
 
-    s = Solution()
-    print(s.leastInterval(['a','a','a','b','b','b'], 2))  
+    def leastInterval(self, tasks, n):
+        """
+        :type tasks: List[str]
+        :type n: int
+        :rtype: int
+        """
+
+        d = {}
+        for i in tasks:
+            d[i] = d.get(i, 0) + 1
+
+        l = [(k, v) for k, v in d.items()]
+        l.sort(key=lambda x: x[1], reverse=True)
+
+        m = l[0][1]
+        need = (m - 1) * n
+        for i in range(1, len(l)):
+            k, v = l[0], l[1]
+            if v == m:
+                need -= m - 1
+            else:
+                need -= v
+
+        return len(tasks) + max(need, 0)
