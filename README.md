@@ -75,7 +75,9 @@ Python For Leetcode
     - Recursive, Time Limit Exceeded
     - Forward Dynamic Programming, Memory Limit Exceeded
     - Backward DP, works.
-
+  - 310 Minimum Height Trees
+    - Graph
+    - BFS + Trick
   
 ### Binary, Int
 
