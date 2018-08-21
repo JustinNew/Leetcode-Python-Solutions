@@ -213,3 +213,5 @@ Example problems:
     - Start from end
   - 378 Kth Smallest Element in a Sorted Matrix
     - Heap + Push and Pop One by One
+  - 319 Bulb Switcher
+    - Perfect square numbers
