@@ -78,6 +78,9 @@ Python For Leetcode
   - 310 Minimum Height Trees
     - Graph
     - BFS + Trick
+  - 331 Verify Preorder Serialization of a Binary Tree
+    - Use stack
+    - A very tricky algorithm
   
 ### Binary, Int
 
