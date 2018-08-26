@@ -81,7 +81,9 @@ Python For Leetcode
   - 331 Verify Preorder Serialization of a Binary Tree
     - Use stack
     - A very tricky algorithm
-  
+  - 332 Reconstruct Itinerary
+    - DFS + Backtrack
+
 ### Binary, Int
 
 Use **bin(num)**, **int(str, 2)**
