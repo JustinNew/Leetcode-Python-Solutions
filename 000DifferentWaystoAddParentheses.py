@@ -28,7 +28,48 @@ class Solution(object):
         else:
             return m*n
 
-if __name__ == '__main__':
+    # My codes.
+    def diffWaysToCompute(self, input):
+        """
+        :type input: str
+        :rtype: List[int]
+        """
 
-    s = Solution()
-    print(s.diffWaysToCompute('2*3-4*5'))
+        if input[0] in ['+', '-', '*']:
+            return [None]
+        if input[-1]  in ['+', '-', '*']:
+            return [None]
+
+        s = 0
+        e = 0
+        l = []
+        while e < len(input) - 1:
+            if input[e] in ['+', '-', '*']:
+                l.append(int(input[s:e]))
+                l.append(input[e])
+                s = e + 1
+
+            e = e + 1
+        
+        l.append(int(input[s:e + 1]))
+
+        def divide(nums):
+
+            if len(nums) == 1:
+                return nums
+
+            temp = []
+            for i in range(len(nums)):
+                if nums[i] in ['+', '-', '*']:
+                    left = divide(nums[:i])
+                    right = divide(nums[i + 1:])
+                    if nums[i] == '+':
+                        temp += [j + k for j in left for k in right]
+                    elif nums[i] == '-':
+                        temp += [j - k for j in left for k in right]
+                    else:
+                        temp += [j * k for j in left for k in right]
+
+            return temp
+
+        return divide(l)
