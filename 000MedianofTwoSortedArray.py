@@ -31,6 +31,7 @@ class Solution(object):
 
             if m1 + m2 < k:
                 # if list2's median is bigger than list1's, list1's first half doesn't include k
+                # m1 and m2 can be '0', so need to be k - m1 - 1.
                 if list1[m1] < list2[m2]:
                     return kth(list1[m1 + 1:], list2, k - m1 - 1)
                 else:
