@@ -5,6 +5,7 @@
 # Use gcd(a, b)
 # The basic idea is to use the property of Bézout's identity and check if z is a multiple of GCD(x, y)
 # https://leetcode.com/problems/water-and-jug-problem/discuss/83715/Math-solution-Java-solution 
+# https://leetcode.com/problems/water-and-jug-problem/discuss/83720/Clear-Explanation-of-Why-Using-GCD
 
 class Solution:
     def canMeasureWater(self, x, y, z):
