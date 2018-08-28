@@ -223,3 +223,5 @@ Example problems:
   - 319 Bulb Switcher
     - Perfect square number
   - 357 Count Numbers with Unique Digits
+  - 365 Water and Jug Problem
+    - use GCD
