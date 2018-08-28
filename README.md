@@ -198,10 +198,10 @@ Problems uses in-order, pre-order, post-order traversal or level order travesal:
 
 ### Graph Problems
 
-Classis Problems:
+Classic Problems:
   - 207 Course Schedule  
 
-### Tricky Math/Algorithm
+### Tricky Algorithm
 
 Example problems:
   - 8 String to Integer (atoi)
@@ -218,5 +218,8 @@ Example problems:
     - Start from end
   - 378 Kth Smallest Element in a Sorted Matrix
     - Heap + Push and Pop One by One
+
+### Actually Math Problem
   - 319 Bulb Switcher
-    - Perfect square numbers
+    - Perfect square number
+  - 357 Count Numbers with Unique Digits
