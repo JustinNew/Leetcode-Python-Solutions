@@ -83,6 +83,9 @@ Python For Leetcode
     - A very tricky algorithm
   - 332 Reconstruct Itinerary
     - DFS + Backtrack
+  - 365 Water and Jug Problem
+    - BFS 
+    - Clear thought about how to pour waters
 
 ### Binary, Int
 
