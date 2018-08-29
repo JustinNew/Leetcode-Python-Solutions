@@ -62,7 +62,9 @@ Python For Leetcode
   - 300 Longest Increasing Subsequence
     - DP
     - Binary Search
-    - Same: 334 Increasing Triplet Subsequence
+    - Similar: 
+      - 334 Increasing Triplet Subsequence
+      - 368 Largest Divisible Subset
   - 84 Largest Rectangle in Histogram
     - Stack, using stack to only keep increasing sequence
   - 130 Surrounded Regions
