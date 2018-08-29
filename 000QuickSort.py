@@ -1,18 +1,22 @@
-def quickSort(arr):
-    less = []
-    pivotList = []
-    more = []
-    if len(arr) <= 1:
-        return arr
-    else:
-        pivot = arr[0]
-        for i in arr:
-            if i < pivot:
-                less.append(i)
-            elif i > pivot:
-                more.append(i)
-            else:
-                pivotList.append(i)
-        less = quickSort(less)
-        more = quickSort(more)
-        return less + pivotList + more
+# Quick Sort
+
+def quickSort(nums):
+
+    if len(nums) <= 1:
+        return nums
+
+    small = []
+    equal = []
+    large = []
+
+    for i in range(0, len(nums)):
+        if nums[i] == nums[0]:
+            equal.append(nums[i])
+        elif nums[i] < nums[0]:
+            small.append(nums[i])
+        else:
+            large.append(nums[i])
+
+    return quickSort(small) + equal + quickSort(large)
+
+print(quickSort([1,6,2,4,8,3,1,4,12,19,21,11,9,8]))
