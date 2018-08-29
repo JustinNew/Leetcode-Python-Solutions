@@ -377,3 +377,6 @@ Boundary is handled using dummy buildings.
 ## Reservior Sampling
 
 [This blog](https://gregable.com/2007/10/reservoir-sampling.html) explains the reservior sampling very well.
+
+examples:
+  - 382 Linked List Random Node
