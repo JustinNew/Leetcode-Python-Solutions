@@ -86,6 +86,9 @@ Python For Leetcode
   - 365 Water and Jug Problem
     - BFS 
     - Clear thought about how to pour waters
+  - 382 Linked List Random Node
+    - Reservior Sampling
+    - [This blog](https://gregable.com/2007/10/reservoir-sampling.html) explains the reservior sampling very well.
 
 ### Binary, Int
 
