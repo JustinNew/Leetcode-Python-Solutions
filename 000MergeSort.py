@@ -23,11 +23,9 @@ def MergeSort(nums):
             j += 1
 
     if i == len(left):
-        for k in range(j, len(right)):
-            result.append(right[k])
+        result += right[j:]
     elif j == len(right):
-        for k in range(i, len(left)):
-            result.append(left[k])
+        result += left[i:] 
 
     return result
 
