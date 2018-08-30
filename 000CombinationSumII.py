@@ -83,13 +83,17 @@ def combine_sum_2(self, nums, start, path, result, target):
             if i - 1 >= 0 and candidates[i] == candidates[i - 1]:
                 t = []
                 for l in temp:
-                    t.append(l + [candidates[i]])
+                    # This spped up the code.
+                    if sum(l) + candidates[i] <= target:
+                        t.append(l + [candidates[i]])
                 temp = t
             else:
                 temp = []
                 for l in result:
-                    temp.append(l + [candidates[i]])
-                temp = [l for l in temp if sum(l) <= target]
+                    # This speed up the code.
+                    if sum(l) + candidates[i] <= target:
+                        temp.append(l + [candidates[i]])
+                
                 # Early stop to deal with Time Limit Exceeded.
                 if len(temp) == 0:
                     break
