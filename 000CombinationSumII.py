@@ -3,6 +3,8 @@
 # Trick: how to avoid duplicated combinations.
 
 class Solution(object):
+
+    ######################################################################################################
     def combinationSum2(self, candidates, target):
         """
         :type candidates: List[int]
@@ -27,7 +29,7 @@ class Solution(object):
 
         return
 
-
+######################################################################################################
 def combinationSum2(self, candidates, target):
     # Sorting is really helpful, se we can avoid over counting easily
     candidates.sort()                      
@@ -58,9 +60,40 @@ def combine_sum_2(self, nums, start, path, result, target):
         # We change the start to `i + 1` because one element only could
         # be used once
         self.combine_sum_2(nums, i + 1, path + [nums[i]], 
-                           result, target - nums[i]) 
+                           result, target - nums[i])
 
-if __name__ == '__main__':
+    return  
 
-    s = Solution()
-    print(s.combinationSum2([2,2,2,1,1,1,1,1], 4))
+    ################################################################################################
+    def combinationSum2(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        if sum(candidates) < target:
+            return []
+        if min(candidates) > target:
+            return []    
+    
+        result = [[]]
+        candidates.sort()
+        for i in range(len(candidates)):
+            # Deal with duplicates
+            if i - 1 >= 0 and candidates[i] == candidates[i - 1]:
+                t = []
+                for l in temp:
+                    t.append(l + [candidates[i]])
+                temp = t
+            else:
+                temp = []
+                for l in result:
+                    temp.append(l + [candidates[i]])
+                temp = [l for l in temp if sum(l) <= target]
+                # Early stop to deal with Time Limit Exceeded.
+                if len(temp) == 0:
+                    break
+                                  
+            result += temp
+  
+        return [l for l in result if sum(l) == target]
