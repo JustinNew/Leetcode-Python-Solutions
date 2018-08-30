@@ -146,13 +146,13 @@ Trick:
   - DFS and pass down parameters
 
 Example Problems:
+  - 79 Word Search
   - 207 Course Schedule
   - 210 Course Schedule II
 
 ### BFS
   
 Example Problems:
-  - 79 Word Search
   - 322 Coin Change
     - BFS top down
     - BFS bottom up with table buildup
