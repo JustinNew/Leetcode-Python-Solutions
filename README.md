@@ -96,7 +96,6 @@ Python For Leetcode
     - curMax = max(nums[i], curMax + nums[i])
     - Silimar problems:
       - 121 Best Time to Buy and Sell Stock
-      - 5 Longest Palindromic Substring
 
 ### Binary, Int
 
