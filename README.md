@@ -91,6 +91,12 @@ Python For Leetcode
   - 382 Linked List Random Node
     - Reservior Sampling
     - [This blog](https://gregable.com/2007/10/reservoir-sampling.html) explains the reservior sampling very well.
+  - 53 Maximum Subarray
+    - resMax = max(resMax, curMax)
+    - curMax = max(nums[i], curMax + nums[i])
+    - Silimar problems:
+      - 121 Best Time to Buy and Sell Stock
+      - 5 Longest Palindromic Substring
 
 ### Binary, Int
 
