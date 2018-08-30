@@ -4,6 +4,7 @@
 # 1. Track the lowest price so far L[i]
 # 2. Max profit so far P[i] 
 # 3. P[i] = max(P[i - 1], price[i] - L[i])
+# Similar to 53. Maximum Subarray
 
 class Solution(object):
     def maxProfit(self, prices):
