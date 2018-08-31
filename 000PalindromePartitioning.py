@@ -1,9 +1,9 @@
 # 131. Palindrome Partitioning
 
-# Divide and Conquer.
-# Trick how to avoid repeated partition: just further partition the right-half.
+# Intuition recursive solution
+# Some similarity to 95. Unique Binary Search Trees II
 
-class Solution(object):
+class Solution:
     def partition(self, s):
         """
         :type s: str
@@ -11,26 +11,15 @@ class Solution(object):
         """
 
         if len(s) == 0:
-            return []
+            return [[]]
+
         if len(s) == 1:
             return [[s]]
 
         result = []
-        if s == s[::-1]:
-            result.append([s])
-
-        for i in range(1, len(s)):
-            t = s[:i]
-            if t == t[::-1]:
-                left = [s[:i]]
-                right = self.partition(s[i:])
-
-                for j in range(len(right)):
-                    result.append(left + right[j])
+        for i in range(1, len(s) + 1):
+            if s[:i] == s[:i][::-1]:
+                for l in self.partition(s[i:]):
+                    result.append([s[:i]] + l)
 
         return result
-
-if __name__ == '__main__':
-
-    s = Solution()
-    print(s.partition('aaa'))
