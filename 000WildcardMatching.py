@@ -21,41 +21,48 @@
 # *   N  N  Y  N
 # b   N  N  N  Y
 
-class Solution(object):
+class Solution:
+
+    ##############################################################################################################
+    # Intuition recursive solution
+    # Time limit exceeded
     def isMatch(self, s, p):
         """
         :type s: str
         :type p: str
         :rtype: bool
         """
-
+        # Base Cases
         if len(s) == 0 and len(p) == 0:
             return True
-        elif len(s) == 0:
-            if p[0] == '*':
-                return self.isMatch(s, p[1:])
-            else:
-                return False
         elif len(p) == 0:
+            return False
+        elif len(s) == 0:
+            if set(p) != set('*'):
                 return False
+            else:
+                return True
 
-        if p[0] == '*':
-            flag = 0
+        # Recursive matches
+        if p[0] != '?' and p[0] != '*':
+            if p[0] != s[0]:
+                return False
+            else:
+                return self.isMatch(s[1:], p[1:])
+        elif p[0] == '?':
+            return self.isMatch(s[1:], p[1:])
+        else:
             for i in range(len(s) + 1):
                 if self.isMatch(s[i:], p[1:]):
-                    flag = 1
-            if flag == 1:
-                return True
-            else:
-                return False
-        else:
-            if p[0] == '?':
-                return self.isMatch(s[1:], p[1:])
-            elif s[0] == p[0]:
-                return self.isMatch(s[1:], p[1:])
-            else:
-                return False
+                    return True
 
+            return False
+
+    ##############################################################################################################
+    # Recursive solution has a lot of repeated calculation
+    # So Dynamic Programming
+    # 2-D DP
+    # Time Limit Exceeded
 
     def isMatch2(self, s, p):
         """
@@ -63,73 +70,105 @@ class Solution(object):
         :type p: str
         :rtype: bool
         """
-
-        m = len(p)
-        n = len(s)
-
-        if len(p) - p.count('*') > n:
-            return False
-
-        if m == 0 and n == 0:
+        # Base case
+        if len(s) == 0 and len(p) == 0:
             return True
-        elif m == 0:
+        elif len(p) == 0:
             return False
-        elif n == 0:
+        elif len(s) == 0:
             if set(p) != set('*'):
                 return False
             else:
                 return True
+            
+        # Row
+        n = len(p)
+        # Column
+        m = len(s)
 
-        # '*' matches '', so need to have n + 1 columns.
-        match = [[False for j in range(n + 1)] for i in range(m)]
+        # Need to add one column and one row.
+        # Initialization if error prone and tricky.
+        dp = [[0 for i in range(m + 1)] for j in range(n + 1)]
+        dp[0][0] = 1
 
-        if p[0] == '*':
-            for i in range(n + 1):
-                match[0][i] = True
-        elif p[0] == '?':
-            match[0][1] = True
-        elif p[0] == s[0]:
-            match[0][1] = True
-        
-        for i in range(1, m):
-            if p[i] == '*':
-                for j in range(0, n + 1):
-                    flag = 0
-                    for k in range(j, -1, -1):
-                        if match[i - 1][k]:
-                            flag = 1
-                    if flag == 1:
-                        match[i][j] = True
-            elif p[i] == '?':
-                for j in range(1, n + 1):
-                    if match[i - 1][j - 1] == True:
-                        match[i][j] = True
+        for i in range(1, n + 1):
+            if p[i - 1] == '*':
+                dp[i][0] = 1
             else:
-                for j in range(1, n + 1):
-                    if p[i] == s[j - 1] and match[i - 1][j - 1]:
-                        match[i][j] = True 
+                break
 
-        return match[m - 1][n]
+        for i in range(1, n + 1):
+            for j in range(1, m + 1):
+                if p[i - 1] != '?' and p[i - 1] != '*':
+                    if p[i - 1] == s[j - 1] and dp[i - 1][j - 1] == 1:
+                        dp[i][j] = 1
+                        
+                elif p[i - 1] == '?':
+                    if dp[i - 1][j - 1] == 1:
+                        dp[i][j] = 1
+                        
+                elif p[i - 1] == '*':
+                    # '*' can match 0 letter, so it's from 0 to j instead of j - 1.
+                    for k in range(j + 1):
+                        if dp[i - 1][k] == 1:
+                            dp[i][j] = 1  
+                            break
+                            
+        return True if dp[-1][-1] == 1 else False
+
+    ##############################################################################################################
+    # Optimize the previous 2-D DP approach.
 
     def isMatch3(self, s, p):
-        length = len(s)
-        if len(p) - p.count('*') > length:
+        """
+        :type s: str
+        :type p: str
+        :rtype: bool
+        """
+        if len(s) == 0 and len(p) == 0:
+            return True
+        elif len(p) == 0:
             return False
-        dp = [True] + [False]*length
-        for i in p:
-            if i != '*':
-                for n in reversed(range(length)):
-                    dp[n+1] = dp[n] and (i == s[n] or i == '?')
+        elif len(s) == 0:
+            if set(p) != set('*'):
+                return False
             else:
-                for n in range(1, length+1):
-                    dp[n] = dp[n-1] or dp[n]
-            dp[0] = dp[0] and i == '*'
-        return dp[-1]
+                return True
+            
+        # Row
+        n = len(p)
+        # Column
+        m = len(s)
+        dp = [[0 for i in range(m + 1)] for j in range(n + 1)]
+        # Need to add one column and one row.
+        # Initialization if error prone and tricky.
+        dp[0][0] = 1
+        for i in range(1, n):
+            if p[i - 1] == '*':
+                dp[i][0] = 1
+            else:
+                break
 
-if __name__ == '__main__':
+        for i in range(1, n + 1):
 
-    s = Solution()
-    if s.isMatch3("bbbbaaaaabaabbbbaabaaabaabbababbbaaabbababbbabaabaabaabababaaabaaaabbaabbaabbaaaaabbabbbbaaaababbaaaabbabbbaabaaabbaabaabaaababbabbaababaababbbbbaabbabbabbbbaabbaaababbabaaabbbbbbbbaababbbbbbabbaabaaa", "b*a**b***abaabaaaba*abaaaaabaabb*bbb*aa*ab*a**b**b*a**a**a*abbb***bb*b*****baababaa**ab*aa*bbaba**bb*b*"):
-        print('Matched.')
-    else:
-        print('Did not match.')
+            if p[i - 1] != '?' and p[i - 1] != '*':
+                for j in range(1, m + 1):
+                    if p[i - 1] == s[j - 1] and dp[i - 1][j - 1] == 1:
+                        dp[i][j] = 1
+
+            elif p[i - 1] == '?':
+                for j in range(1, m + 1):
+                    if dp[i - 1][j - 1] == 1:
+                        dp[i][j] = 1
+
+            elif p[i - 1] == '*':
+                flag = 0
+                for j in range(0, m + 1):
+                    if dp[i - 1][j] == 1:
+                        flag = 1 
+                        break
+                if flag == 1:
+                    for k in range(j, m + 1):
+                        dp[i][k] = 1
+
+        return True if dp[-1][-1] == 1 else False
