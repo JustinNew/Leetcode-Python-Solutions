@@ -115,7 +115,7 @@ Use **bin(num)**, **int(str, 2)**
 
 Key Points:
   - The definition of DP is the question answer.
-    - For 309 Best Time to Buy and Sell Stock with Cooldown, dp[i] is the maximum profit
+    - For 309 Best Time to Buy and Sell Stock with Cooldown, dp[i] is the maximum profit.
     - For 139 Word Break, dp[start][end] is whether string can be separated into words. 
   - Any problem that can get solved by using smaller solved sub-problems
   - Identity sub-problems and Use solved sub-problems for larger problem
