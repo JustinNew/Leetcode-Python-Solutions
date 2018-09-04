@@ -13,6 +13,11 @@ We first do some math work. For two numbers, A and B, if A < B, A % B must > 0 (
 With this idea, we sort the list. Then, the question turns similar to no.300 longest increasing subsequence. For ith number, its largest divisible subset is the max of subset of any j from 0 - i-1 in which nums[i] % nums[j] == 0.
 '''
 
+# Sort the nums
+# If A > B > C and A % B == 0 and B % C == 0, then A % C == 0.
+# Dynamic Programming DP[n] = [1, 2, 4, ...]
+# Similar to Maximum Subarray
+
 class Solution:
     def largestDivisibleSubset(self, nums):
         """
@@ -20,27 +25,22 @@ class Solution:
         :rtype: List[int]
         """
 
-        from copy import copy
+        if len(nums) == 0:
+            return []
+        
         nums.sort()
-        n = len(nums)
-        if n == 0: return []
-        dp = [0] * n
-        dp[0] = [nums[0]]
-        
-        for i in xrange(1, n):
-            curNum = nums[i]
-            maxSet = []
-            for j in xrange(i):
-                if curNum % nums[j] == 0:
-                    localSet = copy(dp[j])
-                    if len(localSet) > len(maxSet):
-                        maxSet = localSet
-            
-            maxSet.append(nums[i])
-            dp[i] = maxSet
-        
-        res = []
-        for localSet in dp:
-            if len(localSet) > len(res):
-                res = localSet
-        return res 
+
+        dp = [[] for i in range(len(nums))]
+
+        for i in range(len(nums)):
+
+            cur = []
+            for j in range(i):
+                if len(dp[j]) != 0 and nums[i] % dp[j][-1] == 0 and len(dp[j]) > len(cur):
+                    cur = dp[j]
+            dp[i] = cur + [nums[i]]
+
+        result = [(dp[i], len(dp[i])) for i in range(len(dp))]
+        result.sort(key=lambda x: x[1])
+
+        return result[-1][0]
