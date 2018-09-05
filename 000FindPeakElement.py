@@ -1,27 +1,6 @@
 # 162. Find Peak Element
 
-class Solution(object):
-    def findPeakElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        if len(nums) == 1:
-            return 0
-        m = nums[0]
-
-        for i in range(1, len(nums)):
-            if i < len(nums) - 1 and nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
-                return i
-            if nums[i] > m:
-                m = nums[i]
-
-        if m == nums[0]:
-            return 0
-        elif m == nums[-1]:
-            return len(nums) - 1
-
-```
+'''
 Basic Idea: Binary search
 
 Elaboration: 
@@ -31,7 +10,7 @@ Elaboration:
    3. first increasing then decreasing -> the pivot point is the peak
    4. first decreasing then increasing -> the left-most element is the peak  
 
-   Therefore, we can find the peak only on its right elements( cut the array to half)
+   Therefore, we can find the peak only on its right elements(cut the array to half)
 
    The same idea applies to that an element(not the left-most one) is smaller than its left neighbor.
 
@@ -53,22 +32,50 @@ Test cases:
      [1,2,3]
      [3,2,1]
      [2,1,3]
-```
+'''
 
-def findPeakElement(self, nums):
-    left = 0
-    right = len(nums)-1
+class Solution:
+    def findPeakElement(self, nums):
+        left = 0
+        right = len(nums)-1
 
-    # handle condition 3
-    while left < right-1:
-        mid = (left+right)/2
-        if nums[mid] > nums[mid+1] and nums[mid] > nums[mid-1]:
-            return mid
+        # handle condition 3
+        while left < right-1:
+            mid = (left+right)/2
+            if nums[mid] > nums[mid+1] and nums[mid] > nums[mid-1]:
+                return mid
             
-        if nums[mid] < nums[mid+1]:
-            left = mid+1
-        else:
-            right = mid-1
+            if nums[mid] < nums[mid+1]:
+                left = mid+1
+            else:
+                right = mid-1
             
-    #handle condition 1 and 2
-    return left if nums[left] >= nums[right] else right
+        # handle condition 1 and 2
+        return left if nums[left] >= nums[right] else right
+
+    # My solution
+    def findPeakElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        l = 0
+        h = len(nums) - 1
+        
+        if h == 1:
+            return 0 if nums[0] > nums[1] else 1
+
+        while l < h:
+
+            mid = int((l + h) / 2)
+            if mid - 1 < 0 or mid + 1 > len(nums) - 1:
+                return mid
+            elif nums[mid] > nums[mid - 1] and nums[mid] > nums[mid + 1]:
+                return mid
+            elif nums[mid] > nums[mid - 1] and nums[mid] < nums[mid + 1]:
+                l = mid + 1
+            else:
+                h = mid    # Pay attention to this, h = mid instead of h = mid - 1
+
+        return l
