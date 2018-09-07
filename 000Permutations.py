@@ -1,72 +1,57 @@
 # 46. Permutations
 
-########################################################
-# Pay attention to the different between the two.
-########################################################
-# If using result.append(), can not pass nums directly.
-# There is problem about assignment.
-# Create another list variable "temp".
-# There is not problem if using print(). 
+# Be careful about list append and mutation at the same time.
+# Need to create a new list instead of using the mutated list itself.
 
 class Solution:
+    # Create a new list when go further.
     def permute(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
 
-        if len(nums) == 0:
-            return []
-
-        l = len(nums)
         result = []
-        temp = []
 
-        self.util(0, l, nums, result)
+        def helper(arr, i):
+            if i == len(arr):
+                result.append(arr)
+                return
 
+            for j in range(i, len(arr)):
+                temp = [k for k in arr]
+                temp[i], temp[j] = temp[j], temp[i]
+                helper(temp, i + 1)
+
+            return
+
+        helper(nums, 0)
         return result
 
-    def util(self, i, l, nums, result):
-
-        if i == l:
-            result.append(nums)
-            return
-
-        for j in range(i, l):
-            nums[i], nums[j] = nums[j], nums[i]
-            temp = [k for k in nums]
-            self.util(i+1, l, temp, result)
-
-        return
-
-class Solution2:
+    # When append to result, do not append arr directly.
+    # Need to do backtrack.
     def permute(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        result = []
 
-        if len(nums) == 0:
-            return []
-
-        l = len(nums)
-
-        self.util(0, l, nums)
-
-        return
-
-    def util(self, i, l, nums):
-
-        if i == l:
-            print(nums)
+        def helper(arr, i):
+            if i == len(arr):
+                result.append([k for k in arr])
+                return
+            
+            for j in range(i, len(arr)):
+                arr[i], arr[j] = arr[j], arr[i]
+                helper(arr, i + 1)
+                arr[i], arr[j] = arr[j], arr[i]
+            
             return
-
-        for j in range(i, l):
-            nums[i], nums[j] = nums[j], nums[i]
-            self.util(i+1, l, nums)
-            nums[i], nums[j] = nums[j], nums[i]
-
-        return
+            
+        helper(nums, 0)
+        return result
+            
 
 ########################################################
 # Excellent solution.
@@ -83,31 +68,31 @@ def permute(self, nums):
     for n in nums:
         new_perms = []
         for perm in perms:
-            for i in xrange(len(perm)+1):   
-                new_perms.append(perm[:i] + [n] + perm[i:])   ###insert n
+            for i in range(len(perm)+1):   
+                new_perms.append(perm[:i] + [n] + perm[i:])   # Insert n
         perms = new_perms
     return perms
 
-#########################################################
-# Duplication happens when we insert the duplicated element before 
-# and after the same element, to eliminate duplicates, 
-# just insert only after the same element.
 
-def permuteUnique(self, nums):
-    ans = [[]]
-    for n in nums:
-        new_ans = []
-        for l in ans:
-            for i in xrange(len(l)+1):
-                new_ans.append(l[:i]+[n]+l[i:])
-                if i<len(l) and l[i]==n: break              #handles duplication
-        ans = new_ans
-    return ans
+# 47. Permutations II
 
+class Solution:
 
-if __name__ == '__main__':
+    # To handle duplication, just avoid inserting a number after any of its duplicates.
+    def permuteUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
 
-    s = Solution()
-    s2 = Solution2()
-    print (s.permute([1,2,3]))
-    s2.permute([1,2,3])
+        result = [[]]
+        for i in nums:
+            temp = []
+            for l in result:
+                for j in range(len(l) + 1):
+                    temp.append(l[:j] + [i] + l[j:])
+                    if j < len(l) and i == l[j]:   # Handle duplicates, very tricky 
+                        break
+            result = temp
+
+        return result
