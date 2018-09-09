@@ -14,16 +14,17 @@
 
 # Optimized: 
 #    1. dp[i] -> curSum, we only need dp[i - 1] for dp[i].
-#    2. Use maxSum to reduce find the maximum of dp list. 
+#    2. Use ans to reduce find the maximum of dp list. 
 
 class Solution(object):
     def maxSubArray(self, A):
         if not A:
             return 0
 
-        curSum = maxSum = A[0]
+        curSum = ans = A[0]
         for num in A[1:]:
             curSum = max(num, curSum + num)
-            maxSum = max(maxSum, curSum)
+            if curSum > ans:
+                ans = curSum
 
         return maxSum
