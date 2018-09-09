@@ -63,15 +63,23 @@ class Solution(object):
 
         return result    
 
-    # Passed TLE
-    def groupAnagrams3(self, strs):
+    ##########################################################################################################
+    # My own solution.
+    # Tuple as dictionary key.
+
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+
+        if len(strs) == 0:
+            return []
+
         d = {}
-        for w in sorted(strs):
-            key = tuple(sorted(w))
-            d[key] = d.get(key, []) + [w]
-        return d.values()    
 
-if __name__ == '__main__':
+        for s in strs:
+            k = tuple(sorted(s))
+            d[k] = d.get(k, []) + [s]
 
-    so = Solution()
-    print(so.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+        return [i for i in d.values()]
