@@ -14,6 +14,7 @@
 # Greedy
 
 class Solution(object):
+    # Time Limit Exceeded.
     def jump(self, nums):
         """
         :type nums: List[int]
