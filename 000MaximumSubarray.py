@@ -7,6 +7,7 @@
 
 ##############################################################################################################
 # Dynamic programming
+# If the previous sum so far is negative, then start from itself.
 # dp[i] = dp[i - 1] + nums[i] if dp[i - 1] > 0 else nums[i]
 # nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 # dp =   [-1, 1, -2, 4,  3, 5, 6,  1, 5]
