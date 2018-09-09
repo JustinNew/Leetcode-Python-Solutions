@@ -73,22 +73,20 @@ class Solution(object):
 
 #############################################################################################
 # Trick: using max_reach = max(max_reach, i+x)
+# Greedy
 
-def canJump(self, nums):
-    max_reach, n = 0, len(nums)
-    for i, x in enumerate(nums):
-        if max_reach < i: return False
-        if max_reach >= n - 1: return True
-        max_reach = max(max_reach, i + x)
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
 
-
-############################################################################################# 
-# Another one. 
-#############################################################################################
-def canJump(self, nums):
-    m = 0
-    for i, n in enumerate(nums):
-        if i > m:
-            return False
-        m = max(m, i+n)
-    return True
+        l = len(nums)
+        reach = 0
+        for i in range(len(nums)):
+            if i <= reach:
+                reach = max(reach, i + nums[i])
+                if reach >= l - 1:
+                    return True
+            else:
+                return False
