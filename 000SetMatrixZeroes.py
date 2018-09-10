@@ -3,6 +3,7 @@
 
 # Use first row and first column as indicators.
 # Deal with first row and column separately.
+# Always loop from 1, ..., m - 1 and 1, ..., n - 1.
 
 class Solution:
     def setZeroes(self, matrix):
