@@ -1,4 +1,5 @@
 # 56. Merge Intervals
+
 # Facebook Tag
 
 # Definition for an interval.
@@ -32,3 +33,35 @@ class Solution(object):
                 r.append([start, end])
                 
         return r
+
+    # Same idea different codes.
+
+    def merge(self, intervals):
+        """
+        :type intervals: List[Interval]
+        :rtype: List[Interval]
+        """
+
+        times = []
+
+        for i in intervals:
+            times.append([i.start, 1])
+            times.append([i.end, -1])
+
+        times.sort(key=lambda x: (x[0], -1 * x[1]))
+
+        status = 0
+        result = []
+        for i in range(len(times)):
+            if i == 0:
+                s = times[i][0]
+                status = 1
+            else:
+                if status + times[i][1] == 0:
+                    result.append([s, times[i][0]])
+                elif status == 0:
+                    s = times[i][0]
+
+                status += times[i][1]
+
+        return result 
