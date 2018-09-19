@@ -1,38 +1,35 @@
 # 124. Binary Tree Maximum Path Sum
 
 # Definition for a binary tree node.
-# class TreeNode(object):
+# class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.left = None
 #         self.right = None
 
-# Need to do all possible searches.
-
-class Solution(object):
+class Solution:
+    # Do all possible searches.
+    # Up or not.
     def maxPathSum(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
 
-        def util(root):
+        def getMax(root):
+            
             if not root:
                 return [float('-inf'), float('-inf')]
-            if not root.left and not root.right:
-                return [root.val, root.val]
 
-            left = util(root.left)
-            right = util(root.right)
+            (left_up, left_stop) = getMax(root.left)
+            (right_up, right_stop) = getMax(root.right)
 
-            up_max = max(root.val, root.val + left[0], root.val + right[0])
-            stop_max = max(left[1], right[1], root.val + left[0] + right[0], left[0], right[0])
+            up_max = max(root.val, root.val + left_up, root.val + right_up)
+            stop_max = max(left_up + right_up + root.val, left_stop, right_stop, left_up, right_up)
 
             return [up_max, stop_max]
-
-        result = util(root)
-
-        return max(result)
+        
+        return max(getMax(root))
 
     # Exactly same idea but fast code.
     def maxPathSum(self, root):
