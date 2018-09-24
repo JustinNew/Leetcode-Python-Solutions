@@ -1,50 +1,43 @@
 # 128. Longest Consecutive Sequence
 
 # Time O(n), so can not sort.
-# Use dictionary.
+# Use dictionary
+# Only need to update boundary
+# 4 cases
+# For every i need to have a record in dictionary
 
-class Solution(object):
+class Solution:
     def longestConsecutive(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
 
-        if len(nums) <= 1:
-            return len(nums)
+        if len(nums) == 0:
+            return 0
 
         d = {}
         for i in nums:
-            if i in d:
+            if i in d.keys():
                 continue
-            elif i + 1 in d and i - 1 in d:
-                d[i] = 1 + d[i + 1] + d[i - 1]
-                right = i + 1
-                while right in d:
-                    d[right] = d[i]
-                    right += 1
-                left = i - 1
-                while left in d:
-                    d[left] = d[i]
-                    left -= 1
-            elif i + 1 in d:
-                d[i] = 1 + d[i + 1]
-                right = i + 1
-                while right in d:
-                    d[right] = d[i]
-                    right += 1
-            elif i - 1 in d:
-                d[i] = 1 + d[i - 1]
-                left = i - 1
-                while left in d:
-                    d[left] = d[i]
-                    left -= 1
-            elif i not in d:
+            elif i - 1 in d.keys() and i + 1 in d.keys():
+                left = i - d[i - 1]
+                right = i + d[i + 1]
+                d[left], d[right] = d[i - 1] + 1 + d[i + 1], d[i - 1] + 1 + d[i + 1]
+                d[i] = d[left]
+            elif i - 1 in d.keys():
+                left = i - d[i - 1]
+                d[i], d[left] = 1 + d[i - 1], 1 + d[i - 1]
+            elif i + 1 in d.keys():
+                right = i + d[i + 1]
+                d[i], d[right] = 1 + d[i + 1], 1 + d[i + 1]
+            else:
                 d[i] = 1
 
-        return max([v for v in d.values()])
+        return max(d.values())
 
-# Improve it.
+    ####################################################################################################################
+    # Improve it.
     def longestConsecutive(self, nums):
         """
         :type nums: List[int]
@@ -71,7 +64,8 @@ class Solution(object):
 
         return res
 
-# Sort first.
+    ###################################################################################################################
+    # Sort first.
     def longestConsecutive(self, nums):
         """
         :type nums: List[int]
