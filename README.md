@@ -96,6 +96,9 @@ Python For Leetcode
     - curMax = max(nums[i], curMax + nums[i])
     - Silimar problems:
       - 121 Best Time to Buy and Sell Stock
+  - 130 Surrounded Regions
+    - DFS, it will have 'maximum recursion depth exceeded in comparison' error.
+    - BFS
 
 ### Binary, Int
 
