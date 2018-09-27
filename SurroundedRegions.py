@@ -1,51 +1,66 @@
 # 130. Surrounded Regions
 
-class Solution(object):
+# DFS
+# Use a help matrix to label, flip, visited, or visiting.
+
+class Solution:
+    #############################################################################################################
+    # maximum recursion depth exceeded in comparison
     def solve(self, board):
         """
         :type board: List[List[str]]
         :rtype: void Do not return anything, modify board in-place instead.
         """
 
+        if not board:
+            return 
+
         m = len(board)
-        if m <= 1:
+        if m == 1:
             return 
         n = len(board[0])
-        flag = [[-1 for i in range(n)] for j in range(m)]
+
+        help = [[0 for i in range(n)] for j in range(m)]
 
         def dfs(i, j):
 
-            if i < 0 or i >= m or j < 0 or j >= n:
-                return True
-
             if board[i][j] == 'X':
                 return False
-            elif flag[i][j] == 2:
+
+            if i == 0 or i == m - 1:
+                help[i][j] = 1
                 return True
-            elif flag[i][j] == 1:
-                return False
-            elif flag[i][j] == 0:
-                return False
-            elif flag[i][j] == -1:
-                flag[i][j] = 0
-                if dfs(i - 1, j) or dfs(i + 1, j) or dfs(i, j - 1) or dfs(i, j + 1):
-                    flag[i][j] = 2
+
+            if j == 0 or j == n - 1:
+                help[i][j] = 1
+                return True
+
+            if help[i][j] == 0:
+                help[i][j] = -1
+                left = dfs(i, j - 1)
+                right = dfs(i, j + 1)
+                up = dfs(i - 1, j)
+                down = dfs(i + 1, j)
+                if left or right or up or down:
+                    help[i][j] = 1
                     return True
-                flag[i][j] = 1
+                else:
+                    board[i][j] = 'X'
+                    return False
+            elif help[i][j] == -1:
                 return False
-        
-        for k in range(m):
-            for l in range(n):
-                if board[k][l] == 'O' and flag[k][l] == -1:
-                    dfs(k, l)
+            else:
+                return True
 
         for k in range(m):
             for l in range(n):
-                if board[k][l] == 'O' and flag[k][l] == 1:
-                    board[k][l] = 'X'
+                dfs(k, l)
 
         return
 
+
+    #######################################################################################################################
+    # BFS
     def solve1(self, board):
         """
         :type board: List[List[str]]
@@ -95,8 +110,3 @@ class Solution(object):
                     board[k][l] = 'X'
 
         return
-
-if __name__ == '__main__':
-
-    so = Solution()
-    so.solve1([["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]])
