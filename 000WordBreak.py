@@ -77,3 +77,56 @@ class Solution(object):
             return True
         else:
             return False
+
+#############################################################################################################
+# New clearer idea.
+
+'''
+s = "leetcode", wordDict = ["leet", "code"]
+
+1. Recursion
+   if 'l' in wordDict, then check 'eetcode'
+   if 'le' in wordDict, then check 'etcode'
+   ...
+   if 'leet' in wordDict, then check 'code'
+   ...
+
+2. Dynamic programming
+   Recursion converts to dynamic programming
+   dp[n] is True,
+      if 'e' in wordDict, and dp[n - 1] is True
+      or, if 'de' in wordDict, and dp[n - 2] is True
+      ...
+      or, if 'code' in wordDict, and dp[n - 4] is True
+'''
+
+class Solution(object):
+    def wordBreak(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: bool
+        """
+
+        if not s:
+            return True
+        elif len(wordDict) == 0:
+            return False
+
+        dp = [False for i in range(len(s))]
+        if s[0] in wordDict:
+            dp[0] = True
+
+        for i in range(1, len(s)):
+            flag = 0
+            for j in range(i):
+                if s[i - j:i + 1] in wordDict and dp[i - j - 1]:
+                    flag = 1
+                    break
+            if flag == 0 and s[:i + 1] in wordDict:
+                flag = 1
+
+            if flag == 1:
+                dp[i] = True
+
+        return dp[-1]
