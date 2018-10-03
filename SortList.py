@@ -79,3 +79,65 @@ class Solution(object):
             head.next = right
 
         return dummy.next
+
+###############################################################################################################################
+# All in one function.
+
+    def sortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return None
+
+        cur = head
+        count = 0
+        while cur:
+            count += 1
+            cur = cur.next
+
+        if count == 1:
+            return head
+        else:
+            half = int(count / 2)
+            left_head = ListNode(0)
+            left = left_head
+            left.next = head
+            while half > 0:
+                left = left.next
+                half -= 1
+
+            right_head = ListNode(0)
+            right = right_head
+            right.next = left.next
+
+            left.next = None
+
+            left_head.next = self.sortList(left_head.next)
+            right_head.next = self.sortList(right_head.next)
+
+            all_head = ListNode(0)
+            all = all_head
+            left = left_head.next
+            right = right_head.next
+
+            while left and right:
+                if left.val < right.val:
+                    all.next = left
+                    n = left.next
+                    left.next = None
+                    left = n
+                else:
+                    all.next = right
+                    n = right.next
+                    right.next = None
+                    right = n
+                all = all.next
+
+            if left:
+                all.next = left
+            else:
+                all.next = right
+
+            return all_head.next 
