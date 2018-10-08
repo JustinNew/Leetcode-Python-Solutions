@@ -1,36 +1,34 @@
 # 150. Evaluate Reverse Polish Notation
 
+# Use stack
+
 class Solution(object):
     def evalRPN(self, tokens):
         """
         :type tokens: List[str]
         :rtype: int
         """
-        if len(tokens) == 0:
-            return None
 
-        operators = ['+', '-', '*', '/']
         s = []
 
         for i in tokens:
-            if i in operators:
-                right = s.pop()
-                left = s.pop()
+
+            if i in ['+', '-', '*', '/']:
+                second = s.pop()
+                first = s.pop()
+
                 if i == '+':
-                    t = left + right
+                    res = first + second
                 elif i == '-':
-                    t = left - right
+                    res = first - second
                 elif i == '*':
-                    t = left * right
-                else:
-                    if left*right < 0 and left % right != 0:
-                        t = left / right + 1
-                    else:
-                        t = left / right
-                s.append(t)
+                    res = first * second
+                elif i == '/':
+                    res = int(first / second)
+
+                s.append(res)
             else:
-                s.append(int(i))
-                
-            print(s[-1])
-            
+                t = int(i)
+                s.append(t)
+
         return s[-1]
