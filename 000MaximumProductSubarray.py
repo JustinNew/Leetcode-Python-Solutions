@@ -24,3 +24,29 @@ class Solution(object):
             totMax = max(totMax, curMax)
 
         return totMax
+# 152. Maximum Product Subarray
+
+class Solution:
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        tMax = nums[0]
+        curMax = nums[0]
+        tMin = nums[0]
+        curMin = nums[0]
+
+        l = len(nums)
+        if l == 1:
+            return tMax
+
+        for i in range(1, l):
+            t1 = max(nums[i], curMax * nums[i], curMin * nums[i])
+            t2 = min(nums[i], curMin * nums[i], curMax * nums[i])
+            curMax, curMin = t1, t2
+
+            tMax = max(tMax, curMax)
+
+        return tMax
