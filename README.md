@@ -16,7 +16,9 @@ Python For Leetcode
 
   - 162 Find Peak Element
     - Binary search
-    - Need to be careful about conditions
+    - Pay attentions:
+      - low = mid + 1 # mid can not be the peak element 
+      - high = mid # mid can be the peak element
   - 404 Sum of Left Leaves
     - Recursion
     - Depth First Using Stack
