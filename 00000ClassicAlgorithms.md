@@ -119,6 +119,7 @@ Note:
   - Comparing with nums[start] does not work.
   - Use **'<'** instead of **'<='** compared to binary search  
   - **start = m + 1** and **end = m** compared to **low = m + 1** and **high = m - 1**
+  - The start and high assignment is very imilar in problem "162 Find Peak Element"
 
 ## Course Schedule
 
