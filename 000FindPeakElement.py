@@ -32,6 +32,7 @@ Test cases:
      [1,2,3]
      [3,2,1]
      [2,1,3]
+     [3,4,3,2,1]
 '''
 
 class Solution:
@@ -60,22 +61,25 @@ class Solution:
         :rtype: int
         """
 
-        l = 0
-        h = len(nums) - 1
-        
-        if h == 1:
-            return 0 if nums[0] > nums[1] else 1
+        l = len(nums)
+        if l == 1:
+            return 0
+        if l == 2:
+            if nums[0] > nums[1]:
+                return 0
+            else:
+                return 1
 
-        while l < h:
-
-            mid = int((l + h) / 2)
-            if mid - 1 < 0 or mid + 1 > len(nums) - 1:
+        low = 0
+        high = l - 1
+        while low <= high:
+            mid = int( (low + high) / 2 )
+            if mid == 0 or mid == l - 1:
                 return mid
-            elif nums[mid] > nums[mid - 1] and nums[mid] > nums[mid + 1]:
+ 
+            if nums[mid] > nums[mid - 1] and nums[mid] > nums[mid + 1]:
                 return mid
             elif nums[mid] > nums[mid - 1] and nums[mid] < nums[mid + 1]:
-                l = mid + 1
+                low = mid + 1 # mid can not be peak element.
             else:
-                h = mid    # Pay attention to this, h = mid instead of h = mid - 1
-
-        return l
+                high = mid # Instead of high = mid - 1, mid can be peak element.
