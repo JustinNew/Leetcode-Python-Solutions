@@ -14,6 +14,9 @@ Python For Leetcode
 
 ### Classic List
 
+  - 162 Find Peak Element
+    - Binary search
+    - Need to be careful about conditions
   - 404 Sum of Left Leaves
     - Recursion
     - Depth First Using Stack
