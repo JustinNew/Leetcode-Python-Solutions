@@ -42,34 +42,32 @@ class Solution:
         return max(rob[-1] , rob[-2])
 
 
-# From Online
+
 '''
-f(0) = nums[0]
-f(1) = max(num[0], num[1])
-f(k) = max( f(k-2) + nums[k], f(k-1) )
+"determine the maximum amount of money you can rob" -> Max -> Dynamic Programming
+
+dp[n] = max(dp[n - 1], dp[n - 2] + nums[n])
 '''
 
-    def robUnoptimized(self, xs):
-        '''Robbing a house in O(n) time and O(n) space.'''
-        if not xs:
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        l = len(nums)
+
+        if l == 0:
             return 0
-        n = len(xs)
-        dp = [0 for _ in range(n)]
-        for j in range(n):
-            cont = xs[j]
-            if j >= 2:
-                cont += dp[j-2]
-            stop = dp[j-1] if j >= 1 else 0
-            dp[j] = max(cont, stop)
-        return dp[-1]
+        elif l == 1:
+            return nums[0]
+        elif l == 2:
+            return max(nums)
 
-    def rob(self, xs):
-        '''Robbing a house in O(n) time and O(1) space.'''
-        res = 0
-        if not xs:
-            return res
-        a, b = 0, 0
-        for x in xs:
-            res = max(a+x, b)
-            a, b = b, res
-        return res
+        dp = [0 for i in range(l)]
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
+        for i in range(2, l):
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
+
+        return dp[-1]
