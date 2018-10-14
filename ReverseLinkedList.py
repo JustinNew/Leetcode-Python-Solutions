@@ -6,6 +6,17 @@
 #         self.val = x
 #         self.next = None
 
+'''
+Input: 1->2->3->4->5->NULL
+Output: 5->4->3->2->1->NULL
+
+p    c    n
+NULL 1 -> 2 -> 3 -> 4 -> 5 -> NULL
+
+                            p   c
+NULL <- 1 <- 2 <- 3 <- 4 <- 5  NULL
+'''
+
 class Solution:
     def reverseList(self, head):
         """
