@@ -1,45 +1,44 @@
+# 206. Reverse Linked List
+
 # Definition for singly-linked list.
-# class ListNode(object):
+# class ListNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
 
-class Solution(object):
+class Solution:
     def reverseList(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
+
         if not head:
             return None
         elif not head.next:
             return head
-        else:
-            current = head
-            next = head.next
-            head.next = None
 
-        while next.next:  
-            nextnext = next.next
-        
-            next.next = current
-        
-            current = next
-            next = nextnext
-        
-        next.next = current
-        
-        return next
+        dummy = ListNode(0)
+        dummy.next = head
 
-    def reverseList(self, head):
-        prev = None
-        while head:
-            curr = head
-            head = head.next
-            curr.next = prev
-            prev = curr
-    return prev
+        cur = head
+        prev = dummy
+        while cur.next:
+            next = cur.next
+            if cur == head:
+                cur.next = None
+            else:
+                cur.next = prev
 
+            prev = cur
+            cur = next
+
+        cur.next = prev
+        dummy.next = cur
+
+        return dummy.next
+
+    ########################################################################################################
     def reverseList(self, head):
         prev = None
         curr = head
