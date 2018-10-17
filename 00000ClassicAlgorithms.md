@@ -13,30 +13,28 @@ def findMedianSortedArrays(self, A, B):
         return (self.kth(A, B, l // 2) + self.kth(A, B, l // 2 - 1)) / 2.
 
 # Kth is '0' based.
-def kth(self, a, b, k):
-    
-    if not a:
-        return b[k]
-    if not b:
-        return a[k]
-    
-    ia, ib = len(a) // 2 , len(b) // 2
-    ma, mb = a[ia], b[ib]
+def kth(nums1, nums2, k):
 
-    # when k is bigger than the sum of a and b's median indices
-    if ia + ib < k:
-        # if a's median is bigger than b's, b's first half doesn't include k
-        if ma > mb:
-            return self.kth(a, b[ib + 1:], k - ib - 1)
+    if not nums1:
+        return nums2[k]
+    elif not nums2:
+        return nums1[k]
+
+    m1 = int(len(nums1) / 2)
+    m2 = int(len(nums2) / 2)
+
+    if m1 + m2 < k:
+        if nums1[m1] < nums2[m2]:
+            # nums1[m1] can not be medium.
+            return kth(nums1[m1 + 1:], nums2, k - m1 - 1)
         else:
-            return self.kth(a[ia + 1:], b, k - ia - 1)
-    # when k is smaller than the sum of a and b's indices
+            return kth(nums1, nums2[m2 + 1:], k - m2 - 1)
     else:
-        # if a's median is bigger than b's, a's second half doesn't include k
-        if ma > mb:
-            return self.kth(a[:ia], b, k)
+        if nums1[m1] < nums2[m2]:
+            # nums2[m2] can not be medium.
+            return kth(nums1, nums2[:m2], k)
         else:
-            return self.kth(a, b[:ib], k)
+            return kth(nums1[:m1], nums2, k)
 ```
 
 ## Maximum Size Subarray Sum Equals k
