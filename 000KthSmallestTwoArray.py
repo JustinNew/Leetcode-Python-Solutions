@@ -16,11 +16,13 @@ def kth(nums1, nums2, k):
 
     if m1 + m2 < k:
         if nums1[m1] < nums2[m2]:
+            # nums1[m1] can not be medium.
             return kth(nums1[m1 + 1:], nums2, k - m1 - 1)
         else:
             return kth(nums1, nums2[m2 + 1:], k - m2 - 1)
     else:
         if nums1[m1] < nums2[m2]:
+            # nums2[m2] can not be medium.
             return kth(nums1, nums2[:m2], k)
         else:
             return kth(nums1[:m1], nums2, k)
